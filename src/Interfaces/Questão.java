@@ -169,24 +169,59 @@ public class Questão extends javax.swing.JFrame {
         jPanel2.setBounds(0, 0, 860, 460);
 
         Professor.setText("Professor");
+        Professor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProfessorMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Professor);
 
         Assunto.setText("Assunto");
+        Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AssuntoMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Assunto);
 
         Disciplina.setText("Disciplina");
+        Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DisciplinaMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Disciplina);
 
         Questão.setText("Questão");
+        Questão.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuestãoMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Questão);
 
         Prova.setText("Prova");
+        Prova.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProvaMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Prova);
 
         Sobre.setText("Sobre");
+        Sobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SobreMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Sobre);
 
         Sair.setText("Sair");
+        Sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SairMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Sair);
 
         setJMenuBar(jMenuBar2);
@@ -222,6 +257,45 @@ public class Questão extends javax.swing.JFrame {
     private void caixaGrauDeEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaGrauDeEnsinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_caixaGrauDeEnsinoActionPerformed
+
+    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
+        Professor professor = new Professor();
+        professor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ProfessorMouseClicked
+
+    private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
+        Assunto assunto = new Assunto();
+        assunto.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_AssuntoMouseClicked
+
+    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
+        Disciplina disciplina = new Disciplina();
+        disciplina.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_DisciplinaMouseClicked
+
+    private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
+        JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
+
+    }//GEN-LAST:event_QuestãoMouseClicked
+
+    private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
+        Prova prova = new Prova();
+        prova.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ProvaMouseClicked
+
+    private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
+        Sobre sobre = new Sobre();
+        sobre.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_SobreMouseClicked
+
+    private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
+        dispose();
+    }//GEN-LAST:event_SairMouseClicked
 
     /**
      * @param args the command line arguments

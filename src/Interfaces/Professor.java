@@ -376,9 +376,7 @@ public class Professor extends javax.swing.JFrame {
     }//GEN-LAST:event_SobreMouseClicked
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        Professor professor = new Professor();
-        professor.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked

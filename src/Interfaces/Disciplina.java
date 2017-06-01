@@ -77,7 +77,7 @@ public class Disciplina extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Professor");
+        setTitle("Disciplina");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 339));
@@ -248,6 +248,11 @@ public class Disciplina extends javax.swing.JFrame {
         jMenuBar2.add(Assunto);
 
         Disciplina.setText("Disciplina");
+        Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DisciplinaMouseClicked(evt);
+            }
+        });
         jMenuBar2.add(Disciplina);
 
         Questão.setText("Questão");
@@ -292,7 +297,7 @@ public class Disciplina extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -352,6 +357,12 @@ public class Disciplina extends javax.swing.JFrame {
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
     }//GEN-LAST:event_SairMouseClicked
+
+    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
+        Disciplina disciplina = new Disciplina();
+        disciplina.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_DisciplinaMouseClicked
 
     /**
      * @param args the command line arguments

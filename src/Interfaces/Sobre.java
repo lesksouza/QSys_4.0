@@ -121,18 +121,43 @@ public class Sobre extends javax.swing.JFrame {
         jLabel1.setBounds(0, -6, 860, 470);
 
         Professor.setText("Professor");
+        Professor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProfessorMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Professor);
 
         Assunto.setText("Assunto");
+        Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AssuntoMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Assunto);
 
         Disciplina.setText("Disciplina");
+        Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DisciplinaMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Disciplina);
 
         Questão.setText("Questão");
+        Questão.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuestãoMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Questão);
 
         Prova.setText("Prova");
+        Prova.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProvaMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Prova);
 
         Sobre.setText("Sobre");
@@ -144,6 +169,11 @@ public class Sobre extends javax.swing.JFrame {
         jMenuBar3.add(Sobre);
 
         Sair.setText("Sair");
+        Sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SairMouseClicked(evt);
+            }
+        });
         jMenuBar3.add(Sair);
 
         setJMenuBar(jMenuBar3);
@@ -172,6 +202,40 @@ public class Sobre extends javax.swing.JFrame {
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
         JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
+        Professor professor = new Professor();
+        professor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ProfessorMouseClicked
+
+    private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
+        Assunto assunto = new Assunto();
+        assunto.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_AssuntoMouseClicked
+
+    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
+        Disciplina disciplina = new Disciplina();
+        disciplina.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_DisciplinaMouseClicked
+
+    private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
+        Questão questão = new Questão();
+        questão.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_QuestãoMouseClicked
+
+    private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
+        Prova prova = new Prova();
+        prova.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ProvaMouseClicked
+
+    private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
+        dispose();
+    }//GEN-LAST:event_SairMouseClicked
 
     /**
      * @param args the command line arguments

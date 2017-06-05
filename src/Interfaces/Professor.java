@@ -165,16 +165,31 @@ public class Professor extends javax.swing.JFrame {
 
         botaoConsultar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoConsultar.setText("Consultar");
+        botaoConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConsultarActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoConsultar);
         botaoConsultar.setBounds(420, 380, 90, 30);
 
         botaoCadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoCadastrar);
         botaoCadastrar.setBounds(320, 380, 90, 30);
 
         botaoAtualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoAtualizar.setText("Atualizar");
+        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoAtualizar);
         botaoAtualizar.setBounds(320, 420, 90, 30);
 
@@ -400,6 +415,22 @@ public class Professor extends javax.swing.JFrame {
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
     }//GEN-LAST:event_SairMouseClicked
+
+    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
+        JOptionPane.showMessageDialog(null, "O professor foi cadastrado.");
+    }//GEN-LAST:event_botaoCadastrarActionPerformed
+
+    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+        if(campoNome.getText().equals("")&&campoLogin.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o(s) campo(s) que deseja atualizar.");
+        };
+    }//GEN-LAST:event_botaoAtualizarActionPerformed
+
+    private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
+        if(campoNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo ''Código do professor'' com seu respectivo código para consultá-lo.");
+        }
+    }//GEN-LAST:event_botaoConsultarActionPerformed
 
     /**
      * @param args the command line arguments

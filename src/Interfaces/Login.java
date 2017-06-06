@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import DAO.Conexao;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 /**
  *
@@ -96,15 +98,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
-        if(campoUsuario.getText().equals("admin")&&campoSenha.getText().equals("admin")){
-            Principal principal = new Principal();
-            principal.setVisible(true);
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha estão incorretos.");
-            campoUsuario.setText("");
-            campoSenha.setText("");
-        }
+        Connection con = Conexao.AbrirConexao();
+        
+        
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     /**

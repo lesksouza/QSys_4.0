@@ -6,6 +6,7 @@
 package Interfaces;
 
 import DAO.Conexao;
+import DAO.ProfessorDAO;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 /**
@@ -99,8 +100,35 @@ public class Login extends javax.swing.JFrame {
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
         Connection con = Conexao.AbrirConexao();
-        
-        
+        ProfessorDAO sql = new ProfessorDAO(con);        
+        String login = campoUsuario.getText();
+        String senha = campoSenha.getText();
+        if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
+            campoUsuario.setText("");
+            campoSenha.setText("");
+        }else{
+            if (sql.Logar(login, senha) == true){
+                new Thread(){
+                    public void run(){
+                        for (int i = 0; i < 101; i++){
+                            jProgressBar.setValue(i);
+                            try{
+                                Thread.sleep(35);
+                            } catch (Exception ex){
+                                ex.getMessage();
+                            }
+                        }
+                        new Principal().setVisible(true);
+                        dispose();
+                    }
+                }.start();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "QSys", JOptionPane.ERROR_MESSAGE);
+                campoUsuario.setText("");
+                campoSenha.setText("");
+            }
+        }
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     /**

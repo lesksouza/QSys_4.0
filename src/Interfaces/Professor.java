@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import DAO.Conexao;
+import DAO.ProfessorDAO;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -417,13 +420,56 @@ public class Professor extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        JOptionPane.showMessageDialog(null, "O professor foi cadastrado.");
+        String nome = campoNome.getText();
+        String login = campoLogin.getText();
+        String senha = campoSenha.getText();
+        
+        if(nome.equals("") || login.equals("") || senha.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.", "QSys", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Connection con = Conexao.AbrirConexao();
+            ProfessorDAO sql = new ProfessorDAO(con);
+            Professor f = new Professor();
+            
+            f.setNome(nome);
+            f.setLogin(login);
+            f.setSenha(senha);
+            
+            sql.Inserir_Professor(f);
+            Conexao.FecharConexao(con);
+            
+            campoNome.setText("");
+            campoLogin.setText("");
+            campoSenha.setText("");
+            
+            JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.","QSys", JOptionPane.INFORMATION_MESSAGE );
+            dispose();
+        }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-        if(campoNome.getText().equals("")&&campoLogin.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o(s) campo(s) que deseja atualizar.");
-        };
+        if(campoNome.equals("") || campoLogin.equals("") || campoSenha.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Connection con = Conexao.AbrirConexao();
+            ProfessorDAO sql = new ProfessorDAO(con);
+            int campoCodigoProfessor = Integer.parseInt(campoCodigoProfessor);
+            Professor f = new Professor();
+            
+            f.setCodigo(codigo);
+            f.setNome(nome);
+            f.setLogin(login);
+            f.setSenha(senha);
+            
+            sql.Alterar_Professor(f);
+            Conexao.FecharConexao(con);
+            
+            campoCodigoProfessor.setText("");
+            campoNome.setText("");
+            campoLogin.setText("");
+            campoSenha.setText("");
+            
+        }
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
     private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
@@ -521,4 +567,16 @@ public class Professor extends javax.swing.JFrame {
     private javax.swing.JCheckBox selecaoPosDoutorado;
     private javax.swing.JTextPane textoExperiencias;
     // End of variables declaration//GEN-END:variables
+
+    private void setNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSenha(String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setLogin(String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

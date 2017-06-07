@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author CLAUDIO
  */
 public class Conexao {
+    
     public static Connection AbrirConexao(){
         Connection con = null;
         try {
@@ -21,7 +22,7 @@ public class Conexao {
             con = DriverManager.getConnection(url,"root", "admin");
                    
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","Professor", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","QSys", JOptionPane.ERROR_MESSAGE );
         }
         return con;
     }

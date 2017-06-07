@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.sql.*;
 import java.sql.Connection;
 
 public class ExecuteSQL {
@@ -14,14 +15,13 @@ public class ExecuteSQL {
     public ExecuteSQL (Connection con){
         setCon(con);
     }
-
-    private void setCon(Connection con) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public Connection getCon(){
         return con;
     }
     
+    public void setCon(Connection con){
+        this.con = con;
+    }
     
 }

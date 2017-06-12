@@ -9,39 +9,63 @@ import java.sql.*;
 import Modelo.Professor;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JMenu;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author XPerience
  */
-public class ProfessorDAO {
+public class ProfessorDAO extends ExecuteSQL {
     
     public ProfessorDAO(Connection con){
         super(con);
     }
     
-    public String Inserir_Professor(Professor f){
-        String sql = "INSERT INTO professor VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    public boolean Logar(String Login, String Senha){
+       
+        boolean finalResult = false;
+        try {
+            String consulta = "select Login, Senha from professores WHERE Login = '" + Login + "' and Senha = '" + Senha + "'";
+            PreparedStatement ps = getCon().prepareStatement(consulta);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null){
+                while (rs.next()){
+                    Professor p = new Professor();
+                    p.setLogin(rs.getString(1));
+                    p.setSenha(rs.getString(2));
+                    finalResult = true;
+                }
+            }
+        } catch (SQLException ex){
+            ex.getMessage();
+        }
+        return finalResult;
+    }
+    
+    public String Inserir_Professor(Professor p){
+        String sql = "INSERT INTO professores VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
-            ps.setString(1, f.getNome());
-            ps.setString(2, f.getSexo());
-            ps.setString(3, f.getLogin());
-            ps.setString(4, f.getSenha());
-            ps.setString(5, f.getDisciplina1());
-            ps.setString(6, f.getDisciplina2());
-            ps.setString(7, f.getContato());
-            ps.setString(8, f.getEmail());
-            ps.setInt(9, f.getLicenciatura());
-            ps.setInt(10, f.getBacharelado());
-            ps.setInt(11, f.getEspecializacao());
-            ps.setInt(12, f.getMestrado());
-            ps.setInt(13, f.getDoutorado());
-            ps.setInt(14, f.getPosdoutorado());
-            ps.setString(15, f.getCurriculo());
-            ps.setInt(16, f.getDiretordeturma());
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getSexo());
+            ps.setString(3, p.getLogin());
+            ps.setString(4, p.getSenha());
+            ps.setString(5, p.getDisciplina1());
+            ps.setString(6, p.getDisciplina2());
+            ps.setString(7, p.getContato());
+            ps.setString(8, p.getEmail());
+            ps.setInt(9, p.getLicenciatura());
+            ps.setInt(10, p.getBacharelado());
+            ps.setInt(11, p.getEspecializacao());
+            ps.setInt(12, p.getMestrado());
+            ps.setInt(13, p.getDoutorado());
+            ps.setInt(14, p.getPosdoutorado());
+            ps.setString(15, p.getCurriculo());
+            ps.setInt(16, p.getDiretordeturma());
             
             if(ps.executeUpdate() > 0){
                 return "Professor cadastrado com sucesso.";
@@ -54,7 +78,7 @@ public class ProfessorDAO {
     }
     
     public List<Professor> Listar_Professor(){
-        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email,licenciatura,bacharelado,especializacao,mestrado,doutorado,posdoutorado,curriculo,diretordeturma FROM professor";
+        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -63,26 +87,26 @@ public class ProfessorDAO {
             
             if(rs != null){
                 while(rs.next()){
-                    Professor f = new Professor();
-                    f.setCodigo(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setSexo(rs.getString(3));
-                    f.setLogin(rs.getString(4));
-                    f.setSenha(rs.getString(5));
-                    f.setDisciplina1(rs.getString(6));
-                    f.setDisciplina2(rs.getString(7));
-                    f.setContato(rs.getString(8));
-                    f.setEmail(rs.getString(9));
-                    f.setLicenciatura(rs.getInt(10));
-                    f.setBacharelado(rs.getInt(11));
-                    f.setEspecializacao(rs.getInt(12));
-                    f.setMestrado(rs.getInt(13));
-                    f.setDoutorado(rs.getInt(14));
-                    f.setPosdoutorado(rs.getInt(15));
-                    f.setCurriculo(rs.getString(16));
-                    f.setDiretordeturma(rs.getInt(17));
+                    Professor p = new Professor();
+                    p.setCodigo(rs.getInt(1));
+                    p.setNome(rs.getString(2));
+                    p.setSexo(rs.getString(3));
+                    p.setLogin(rs.getString(4));
+                    p.setSenha(rs.getString(5));
+                    p.setDisciplina1(rs.getString(6));
+                    p.setDisciplina2(rs.getString(7));
+                    p.setContato(rs.getString(8));
+                    p.setEmail(rs.getString(9));
+                    p.setLicenciatura(rs.getInt(10));
+                    p.setBacharelado(rs.getInt(11));
+                    p.setEspecializacao(rs.getInt(12));
+                    p.setMestrado(rs.getInt(13));
+                    p.setDoutorado(rs.getInt(14));
+                    p.setPosdoutorado(rs.getInt(15));
+                    p.setCurriculo(rs.getString(16));
+                    p.setDiretordeturma(rs.getInt(17));
                     
-                    lista.add(f);
+                    lista.add(p);
                 }
             return lista;
             }else{
@@ -94,8 +118,8 @@ public class ProfessorDAO {
         
     }
     
-    public List<Professor> Pesquisar_Nome_Professor(String nome){
-        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email,licenciatura,bacharelado,especializacao,mestrado,doutorado,posdoutorado,curriculo,diretordeturma FROM professor WHERE nome LIKE '" + nome + "%'";
+    public List<Professor> Pesquisar_Nome_Professor(String Nome){
+        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores WHERE nome LIKE '" + Nome + "%'";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -104,26 +128,26 @@ public class ProfessorDAO {
             
             if(rs != null){
                 while(rs.next()){
-                    Professor f = new Professor();
-                    f.setCodigo(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setSexo(rs.getString(3));
-                    f.setLogin(rs.getString(4));
-                    f.setSenha(rs.getString(5));
-                    f.setDisciplina1(rs.getString(6));
-                    f.setDisciplina2(rs.getString(7));
-                    f.setContato(rs.getString(8));
-                    f.setEmail(rs.getString(9));
-                    f.setLicenciatura(rs.getInt(10));
-                    f.setBacharelado(rs.getInt(11));
-                    f.setEspecializacao(rs.getInt(12));
-                    f.setMestrado(rs.getInt(13));
-                    f.setDoutorado(rs.getInt(14));
-                    f.setPosdoutorado(rs.getInt(15));
-                    f.setCurriculo(rs.getString(16));
-                    f.setDiretordeturma(rs.getInt(17));
+                    Professor p = new Professor();
+                    p.setCodigo(rs.getInt(1));
+                    p.setNome(rs.getString(2));
+                    p.setSexo(rs.getString(3));
+                    p.setLogin(rs.getString(4));
+                    p.setSenha(rs.getString(5));
+                    p.setDisciplina1(rs.getString(6));
+                    p.setDisciplina2(rs.getString(7));
+                    p.setContato(rs.getString(8));
+                    p.setEmail(rs.getString(9));
+                    p.setLicenciatura(rs.getInt(10));
+                    p.setBacharelado(rs.getInt(11));
+                    p.setEspecializacao(rs.getInt(12));
+                    p.setMestrado(rs.getInt(13));
+                    p.setDoutorado(rs.getInt(14));
+                    p.setPosdoutorado(rs.getInt(15));
+                    p.setCurriculo(rs.getString(16));
+                    p.setDiretordeturma(rs.getInt(17));
                     
-                    lista.add(f);
+                    lista.add(p);
                 }
             return lista;
             }else{
@@ -134,8 +158,8 @@ public class ProfessorDAO {
         }
     }
     
-    public List<Professor> Pesquisar_Codigo_Professor(int codigo){
-        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email,licenciatura,bacharelado,especializacao,mestrado,doutorado,posdoutorado,curriculo,diretordeturma FROM professor WHERE codigo = '" + codigo + "'" ;
+    public List<Professor> Pesquisar_Codigo_Professor(int Codigo){
+        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores WHERE Codigo = '" + Codigo + "'" ;
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -144,26 +168,26 @@ public class ProfessorDAO {
             
             if(rs != null){
                 while(rs.next()){
-                    Professor f = new Professor();
-                    f.setCodigo(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setSexo(rs.getString(3));
-                    f.setLogin(rs.getString(4));
-                    f.setSenha(rs.getString(5));
-                    f.setDisciplina1(rs.getString(6));
-                    f.setDisciplina2(rs.getString(7));
-                    f.setContato(rs.getString(8));
-                    f.setEmail(rs.getString(9));
-                    f.setLicenciatura(rs.getInt(10));
-                    f.setBacharelado(rs.getInt(11));
-                    f.setEspecializacao(rs.getInt(12));
-                    f.setMestrado(rs.getInt(13));
-                    f.setDoutorado(rs.getInt(14));
-                    f.setPosdoutorado(rs.getInt(15));
-                    f.setCurriculo(rs.getString(16));
-                    f.setDiretordeturma(rs.getInt(17));
+                    Professor p = new Professor();
+                    p.setCodigo(rs.getInt(1));
+                    p.setNome(rs.getString(2));
+                    p.setSexo(rs.getString(3));
+                    p.setLogin(rs.getString(4));
+                    p.setSenha(rs.getString(5));
+                    p.setDisciplina1(rs.getString(6));
+                    p.setDisciplina2(rs.getString(7));
+                    p.setContato(rs.getString(8));
+                    p.setEmail(rs.getString(9));
+                    p.setLicenciatura(rs.getInt(10));
+                    p.setBacharelado(rs.getInt(11));
+                    p.setEspecializacao(rs.getInt(12));
+                    p.setMestrado(rs.getInt(13));
+                    p.setDoutorado(rs.getInt(14));
+                    p.setPosdoutorado(rs.getInt(15));
+                    p.setCurriculo(rs.getString(16));
+                    p.setDiretordeturma(rs.getInt(17));
                     
-                    lista.add(f);
+                    lista.add(p);
                 }
             return lista;
             }else{
@@ -176,13 +200,13 @@ public class ProfessorDAO {
     
 
     
-    public Professor Consulta_Professor(int codigo){
+    public Professor Consulta_Professor(int Codigo){
         
-         Professor f = new Professor();
+         Professor p = new Professor();
          
         try {
             
-            String sql = "SELECT * FROM professor WHERE codigo =  " + codigo + "";
+            String sql = "SELECT * FROM professores WHERE Codigo =  " + Codigo + "";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
            
@@ -190,53 +214,52 @@ public class ProfessorDAO {
             if(rs != null){
                 while(rs.next()){
                                       
-                    f.setCodigo(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setSexo(rs.getString(3));
-                    f.setLogin(rs.getString(4));
-                    f.setSenha(rs.getString(5));
-                    f.setDisciplina1(rs.getString(6));
-                    f.setDisciplina2(rs.getString(7));
-                    f.setContato(rs.getString(8));
-                    f.setEmail(rs.getString(9));
-                    f.setLicenciatura(rs.getInt(10));
-                    f.setBacharelado(rs.getInt(11));
-                    f.setEspecializacao(rs.getInt(12));
-                    f.setMestrado(rs.getInt(13));
-                    f.setDoutorado(rs.getInt(14));
-                    f.setPosdoutorado(rs.getInt(15));
-                    f.setCurriculo(rs.getString(16));
-                    f.setDiretordeturma(rs.getInt(17));
+                    p.setCodigo(rs.getInt(1));
+                    p.setNome(rs.getString(2));
+                    p.setSexo(rs.getString(3));
+                    p.setLogin(rs.getString(4));
+                    p.setSenha(rs.getString(5));
+                    p.setDisciplina1(rs.getString(6));
+                    p.setDisciplina2(rs.getString(7));
+                    p.setContato(rs.getString(8));
+                    p.setEmail(rs.getString(9));
+                    p.setLicenciatura(rs.getInt(10));
+                    p.setBacharelado(rs.getInt(11));
+                    p.setEspecializacao(rs.getInt(12));
+                    p.setMestrado(rs.getInt(13));
+                    p.setDoutorado(rs.getInt(14));
+                    p.setPosdoutorado(rs.getInt(15));
+                    p.setCurriculo(rs.getString(16));
+                    p.setDiretordeturma(rs.getInt(17));
                 }
             }
         } catch (Exception e) {
             e.getMessage();
         }
-        if(f.getCodigo() == codigo){
-            JOptionPane.showMessageDialog(null, "Funcionário encontrado com sucesso!");
+        if(p.getCodigo() == Codigo){
+            JOptionPane.showMessageDialog(null, "Professor encontrado com sucesso.");
         }else{
-        JOptionPane.showMessageDialog(null, "Funcionário Não encontrado com sucesso!");    
+        JOptionPane.showMessageDialog(null, "Professor não foi encontrado.");    
         }
-        return f;
+        return p;
     }
     
     
     
     
-    public void Alterar_Professor(Professor f){
-        String sql = "UPDATE professor SET nome = ?, login = ?, senha = ?"
-                + "WHERE codigo = ?";
+    public void Alterar_Professor(Professor p){
+        String sql = "UPDATE professores SET Codigo = ?, Nome = ?, Login = ?, Senha = ?, Disciplina1 = ?, Disciplina2 = ?, Contato = ?, Email = ?, Licenciatura = ?, Bacharelado = ?, Especializacao = ?, Mestrado = ?, Doutorado = ?, Posdoutorado = ?, Curriculo = ?, Diretordeturma = ? WHERE Codigo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(1, f.getNome());
-            ps.setString(2, f.getLogin());
-            ps.setString(3, f.getSenha());
-            ps.setString(4, "" + f.getCodigo());
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getLogin());
+            ps.setString(3, p.getSenha());
+            ps.setString(4, "" + p.getCodigo());
             
             if(ps.executeUpdate() > 0){
                 JOptionPane.showMessageDialog(null,"Professor atualizado com sucesso.");
             }else{
-                JOptionPane.showMessageDialog(null,"Erro ao atualizar o funcionário.");
+                JOptionPane.showMessageDialog(null,"Erro ao atualizar o profesosr.");
             }
         } catch (Exception e) {
            e.getMessage();
@@ -244,7 +267,7 @@ public class ProfessorDAO {
     }
     
     public List<Professor> ListaComboProfessor(){
-        String sql = "SELECT nome FROM professor ORDER BY nome";
+        String sql = "SELECT Nome FROM professores ORDER BY Nome";
         List<Professor> lista = new ArrayList<Professor>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -252,9 +275,9 @@ public class ProfessorDAO {
             
             if(rs != null){
                 while(rs.next()){
-                    Professor f = new Professor();
-                    f.setNome(rs.getString(1));
-                    lista.add(f);
+                    Professor p = new Professor();
+                    p.setNome(rs.getString(1));
+                    lista.add(p);
                 }
                 return lista;
             }else{
@@ -265,12 +288,12 @@ public class ProfessorDAO {
         }
     }
     
-    public String Excluir_Professor(Professor f){
-        String sql = "DELETE FROM professor WHERE codigo = ?";
+    public String Excluir_Professor(Professor p){
+        String sql = "DELETE FROM professores WHERE codigo = ?";
     
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1, f.getCodigo());
+            ps.setInt(1, p.getCodigo());
             
             if(ps.executeUpdate() > 0){
                 return "Professor excluído com sucesso.";
@@ -283,11 +306,13 @@ public class ProfessorDAO {
     
     }
 
-    public boolean Logar(String login, String senha) {
+    
+
+    public void Inserir_Professor(Interfaces.Professor p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Inserir_Professor(Interfaces.Professor f) {
+    public void Alterar_Professor(JMenu Professor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

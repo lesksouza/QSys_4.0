@@ -33,11 +33,12 @@ public class Login extends javax.swing.JFrame {
 
         botaoEntrar = new javax.swing.JButton();
         imagemUsuario = new javax.swing.JLabel();
-        textoUsuario = new javax.swing.JLabel();
-        campoUsuario = new javax.swing.JTextField();
-        textoSenha = new javax.swing.JLabel();
-        campoSenha = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JLabel();
+        Usuario = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JLabel();
+        Senha = new javax.swing.JPasswordField();
         botaoSair = new javax.swing.JButton();
+        BarradeProgresso = new javax.swing.JProgressBar();
         imagemFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,27 +55,27 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoEntrar);
-        botaoEntrar.setBounds(220, 280, 100, 30);
+        botaoEntrar.setBounds(220, 260, 100, 30);
 
         imagemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Login.png"))); // NOI18N
         getContentPane().add(imagemUsuario);
-        imagemUsuario.setBounds(260, 50, 130, 140);
+        imagemUsuario.setBounds(260, 30, 130, 140);
 
-        textoUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        textoUsuario.setText("USUÁRIO");
-        getContentPane().add(textoUsuario);
-        textoUsuario.setBounds(220, 200, 60, 30);
-        getContentPane().add(campoUsuario);
-        campoUsuario.setBounds(280, 200, 150, 30);
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setText("USUÁRIO");
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(220, 180, 60, 30);
+        getContentPane().add(Usuario);
+        Usuario.setBounds(280, 180, 150, 30);
 
-        textoSenha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textoSenha.setForeground(new java.awt.Color(255, 255, 255));
-        textoSenha.setText("SENHA");
-        getContentPane().add(textoSenha);
-        textoSenha.setBounds(220, 240, 50, 30);
-        getContentPane().add(campoSenha);
-        campoSenha.setBounds(280, 240, 150, 30);
+        txtSenha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setText("SENHA");
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(220, 220, 50, 30);
+        getContentPane().add(Senha);
+        Senha.setBounds(280, 220, 150, 30);
 
         botaoSair.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoSair.setText("Sair");
@@ -84,7 +85,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoSair);
-        botaoSair.setBounds(330, 280, 100, 30);
+        botaoSair.setBounds(330, 260, 100, 30);
+        getContentPane().add(BarradeProgresso);
+        BarradeProgresso.setBounds(220, 300, 210, 20);
 
         imagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Space.jpg"))); // NOI18N
         getContentPane().add(imagemFundo);
@@ -101,18 +104,18 @@ public class Login extends javax.swing.JFrame {
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
         Connection con = Conexao.AbrirConexao();
         ProfessorDAO sql = new ProfessorDAO(con);        
-        String login = campoUsuario.getText();
-        String senha = campoSenha.getText();
+        String login = Usuario.getText();
+        String senha = Senha.getText();
         if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
-            campoUsuario.setText("");
-            campoSenha.setText("");
+            Usuario.setText("");
+            Senha.setText("");
         }else{
             if (sql.Logar(login, senha) == true){
                 new Thread(){
                     public void run(){
                         for (int i = 0; i < 101; i++){
-                            jProgressBar.setValue(i);
+                            BarradeProgresso.setValue(i);
                             try{
                                 Thread.sleep(35);
                             } catch (Exception ex){
@@ -125,8 +128,8 @@ public class Login extends javax.swing.JFrame {
                 }.start();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "QSys", JOptionPane.ERROR_MESSAGE);
-                campoUsuario.setText("");
-                campoSenha.setText("");
+                Usuario.setText("");
+                Senha.setText("");
             }
         }
     }//GEN-LAST:event_botaoEntrarActionPerformed
@@ -167,13 +170,14 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar BarradeProgresso;
+    private javax.swing.JPasswordField Senha;
+    private javax.swing.JTextField Usuario;
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JButton botaoSair;
-    private javax.swing.JPasswordField campoSenha;
-    private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel imagemFundo;
     private javax.swing.JLabel imagemUsuario;
-    private javax.swing.JLabel textoSenha;
-    private javax.swing.JLabel textoUsuario;
+    private javax.swing.JLabel txtSenha;
+    private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,259 +11,261 @@ package Modelo;
  */
 public class Professor {
     
-    private int codigo;
-    private String nome;
-    private String sexo;
-    private String login;
-    private String senha;
-    private String disciplina1;
-    private String disciplina2;
-    private String contato;
-    private String email;
-    private int licenciatura;
-    private int bacharelado;
-    private int especializacao;
-    private int mestrado;
-    private int doutorado;
-    private int posdoutorado;
-    private String curriculo;
-    private int diretordeturma;
+    private int Codigo;
+    private String Nome;
+    private String Sexo;
+    private String Login;
+    private String Senha;
+    private String Disciplina1;
+    private String Disciplina2;
+    private String Contato;
+    private String Email;
+    private int Licenciatura;
+    private int Bacharelado;
+    private int Especializacao;
+    private int Mestrado;
+    private int Doutorado;
+    private int Posdoutorado;
+    private String Curriculo;
+    private int Diretordeturma;
 
     /**
-     * @return the codigo
+     * @return the Codigo
      */
     public int getCodigo() {
-        return codigo;
+        return Codigo;
     }
 
     /**
-     * @param codigo the codigo to set
+     * @param Codigo the Codigo to set
      */
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(int Codigo) {
+        this.Codigo = Codigo;
     }
 
     /**
-     * @return the nome
+     * @return the Nome
      */
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     /**
-     * @param nome the nome to set
+     * @param Nome the Nome to set
      */
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String Nome) {
+        this.Nome = Nome;
     }
 
     /**
-     * @return the sexo
+     * @return the Sexo
      */
     public String getSexo() {
-        return sexo;
+        return Sexo;
     }
 
     /**
-     * @param sexo the sexo to set
+     * @param Sexo the Sexo to set
      */
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
     }
 
     /**
-     * @return the login
+     * @return the Login
      */
     public String getLogin() {
-        return login;
+        return Login;
     }
 
     /**
-     * @param login the login to set
+     * @param Login the Login to set
      */
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String Login) {
+        this.Login = Login;
     }
 
     /**
-     * @return the senha
+     * @return the Senha
      */
     public String getSenha() {
-        return senha;
+        return Senha;
     }
 
     /**
-     * @param senha the senha to set
+     * @param Senha the Senha to set
      */
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
     }
 
     /**
-     * @return the disciplina1
+     * @return the Disciplina1
      */
     public String getDisciplina1() {
-        return disciplina1;
+        return Disciplina1;
     }
 
     /**
-     * @param disciplina1 the disciplina1 to set
+     * @param Disciplina1 the Disciplina1 to set
      */
-    public void setDisciplina1(String disciplina1) {
-        this.disciplina1 = disciplina1;
+    public void setDisciplina1(String Disciplina1) {
+        this.Disciplina1 = Disciplina1;
     }
 
     /**
-     * @return the disciplina2
+     * @return the Disciplina2
      */
     public String getDisciplina2() {
-        return disciplina2;
+        return Disciplina2;
     }
 
     /**
-     * @param disciplina2 the disciplina2 to set
+     * @param Disciplina2 the Disciplina2 to set
      */
-    public void setDisciplina2(String disciplina2) {
-        this.disciplina2 = disciplina2;
+    public void setDisciplina2(String Disciplina2) {
+        this.Disciplina2 = Disciplina2;
     }
 
     /**
-     * @return the contato
+     * @return the Contato
      */
     public String getContato() {
-        return contato;
+        return Contato;
     }
 
     /**
-     * @param contato the contato to set
+     * @param Contato the Contato to set
      */
-    public void setContato(String contato) {
-        this.contato = contato;
+    public void setContato(String Contato) {
+        this.Contato = Contato;
     }
 
     /**
-     * @return the email
+     * @return the Email
      */
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     /**
-     * @param email the email to set
+     * @param Email the Email to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     /**
-     * @return the licenciatura
+     * @return the Licenciatura
      */
     public int getLicenciatura() {
-        return licenciatura;
+        return Licenciatura;
     }
 
     /**
-     * @param licenciatura the licenciatura to set
+     * @param Licenciatura the Licenciatura to set
      */
-    public void setLicenciatura(int licenciatura) {
-        this.licenciatura = licenciatura;
+    public void setLicenciatura(int Licenciatura) {
+        this.Licenciatura = Licenciatura;
     }
 
     /**
-     * @return the bacharelado
+     * @return the Bacharelado
      */
     public int getBacharelado() {
-        return bacharelado;
+        return Bacharelado;
     }
 
     /**
-     * @param bacharelado the bacharelado to set
+     * @param Bacharelado the Bacharelado to set
      */
-    public void setBacharelado(int bacharelado) {
-        this.bacharelado = bacharelado;
+    public void setBacharelado(int Bacharelado) {
+        this.Bacharelado = Bacharelado;
     }
 
     /**
-     * @return the especializacao
+     * @return the Especializacao
      */
     public int getEspecializacao() {
-        return especializacao;
+        return Especializacao;
     }
 
     /**
-     * @param especializacao the especializacao to set
+     * @param Especializacao the Especializacao to set
      */
-    public void setEspecializacao(int especializacao) {
-        this.especializacao = especializacao;
+    public void setEspecializacao(int Especializacao) {
+        this.Especializacao = Especializacao;
     }
 
     /**
-     * @return the mestrado
+     * @return the Mestrado
      */
     public int getMestrado() {
-        return mestrado;
+        return Mestrado;
     }
 
     /**
-     * @param mestrado the mestrado to set
+     * @param Mestrado the Mestrado to set
      */
-    public void setMestrado(int mestrado) {
-        this.mestrado = mestrado;
+    public void setMestrado(int Mestrado) {
+        this.Mestrado = Mestrado;
     }
 
     /**
-     * @return the doutorado
+     * @return the Doutorado
      */
     public int getDoutorado() {
-        return doutorado;
+        return Doutorado;
     }
 
     /**
-     * @param doutorado the doutorado to set
+     * @param Doutorado the Doutorado to set
      */
-    public void setDoutorado(int doutorado) {
-        this.doutorado = doutorado;
+    public void setDoutorado(int Doutorado) {
+        this.Doutorado = Doutorado;
     }
 
     /**
-     * @return the posdoutorado
+     * @return the Posdoutorado
      */
     public int getPosdoutorado() {
-        return posdoutorado;
+        return Posdoutorado;
     }
 
     /**
-     * @param posdoutorado the posdoutorado to set
+     * @param Posdoutorado the Posdoutorado to set
      */
-    public void setPosdoutorado(int posdoutorado) {
-        this.posdoutorado = posdoutorado;
+    public void setPosdoutorado(int Posdoutorado) {
+        this.Posdoutorado = Posdoutorado;
     }
 
     /**
-     * @return the curriculo
+     * @return the Curriculo
      */
     public String getCurriculo() {
-        return curriculo;
+        return Curriculo;
     }
 
     /**
-     * @param curriculo the curriculo to set
+     * @param Curriculo the Curriculo to set
      */
-    public void setCurriculo(String curriculo) {
-        this.curriculo = curriculo;
+    public void setCurriculo(String Curriculo) {
+        this.Curriculo = Curriculo;
     }
 
     /**
-     * @return the diretordeturma
+     * @return the Diretordeturma
      */
     public int getDiretordeturma() {
-        return diretordeturma;
+        return Diretordeturma;
     }
 
     /**
-     * @param diretordeturma the diretordeturma to set
+     * @param Diretordeturma the Diretordeturma to set
      */
-    public void setDiretordeturma(int diretordeturma) {
-        this.diretordeturma = diretordeturma;
+    public void setDiretordeturma(int Diretordeturma) {
+        this.Diretordeturma = Diretordeturma;
     }
 }
+
+    

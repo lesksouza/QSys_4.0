@@ -9,6 +9,8 @@ import DAO.Conexao;
 import DAO.ProfessorDAO;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -37,41 +39,48 @@ public class Professor extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        CodigoDoProfessor = new javax.swing.JLabel();
-        campoCodigoProfessor = new javax.swing.JTextField();
+        txtCodigoProfessor = new javax.swing.JLabel();
+        CodigoProfessor = new javax.swing.JTextField();
         botaoProcurar = new javax.swing.JButton();
-        campoNome = new javax.swing.JTextField();
-        Nome = new javax.swing.JLabel();
-        Login = new javax.swing.JLabel();
-        campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JPasswordField();
-        Senha = new javax.swing.JLabel();
-        Contato = new javax.swing.JLabel();
+        Nome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JLabel();
+        Login = new javax.swing.JTextField();
+        Senha = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JLabel();
+        txtContato = new javax.swing.JLabel();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
         botaoConsultar = new javax.swing.JButton();
         botaoCadastrar = new javax.swing.JButton();
         botaoAtualizar = new javax.swing.JButton();
-        Sexo = new javax.swing.JLabel();
-        caixaSexo = new javax.swing.JComboBox();
-        jLabel8 = new javax.swing.JLabel();
-        campoContato = new javax.swing.JTextField();
-        Email = new javax.swing.JLabel();
-        campoEmail = new javax.swing.JTextField();
-        Titulacoes = new javax.swing.JLabel();
-        selecaoLicenciatura = new javax.swing.JCheckBox();
-        selecaoBacharelado = new javax.swing.JCheckBox();
-        selecaoEspecializacao = new javax.swing.JCheckBox();
-        selecaoMestrado = new javax.swing.JCheckBox();
-        selecaoDoutorado = new javax.swing.JCheckBox();
-        selecaoPosDoutorado = new javax.swing.JCheckBox();
+        txtSexo = new javax.swing.JLabel();
+        txtDisciplina = new javax.swing.JLabel();
+        Contato = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JLabel();
+        Email = new javax.swing.JTextField();
+        txtTitulacoes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        textoExperiencias = new javax.swing.JTextPane();
-        DiretorTurma = new javax.swing.JCheckBox();
-        campoDisciplina1 = new javax.swing.JTextField();
-        campoDisciplina2 = new javax.swing.JTextField();
+        Curriculo = new javax.swing.JTextPane();
+        Disciplina1 = new javax.swing.JTextField();
+        Disciplina2 = new javax.swing.JTextField();
+        Sexo = new javax.swing.JTextField();
+        Especializacao = new javax.swing.JLabel();
+        Licenciatura = new javax.swing.JTextField();
+        txtLicenciatura = new javax.swing.JLabel();
+        Bacharelado = new javax.swing.JTextField();
+        txtBacharelado1 = new javax.swing.JLabel();
+        Licenciatura1 = new javax.swing.JTextField();
+        txtMestrado = new javax.swing.JLabel();
+        Mestrado = new javax.swing.JTextField();
+        txtDoutorado = new javax.swing.JLabel();
+        Doutorado = new javax.swing.JTextField();
+        txtPosdoutorado = new javax.swing.JLabel();
+        Posdoutorado = new javax.swing.JTextField();
+        txtDiretordeturma = new javax.swing.JLabel();
+        Diretordeturma = new javax.swing.JTextField();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Professor = new javax.swing.JMenu();
@@ -98,43 +107,43 @@ public class Professor extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        CodigoDoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CodigoDoProfessor.setText("Código do professor");
-        jPanel2.add(CodigoDoProfessor);
-        CodigoDoProfessor.setBounds(330, 20, 109, 15);
-        jPanel2.add(campoCodigoProfessor);
-        campoCodigoProfessor.setBounds(450, 10, 60, 30);
+        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCodigoProfessor.setText("Código do professor");
+        jPanel2.add(txtCodigoProfessor);
+        txtCodigoProfessor.setBounds(330, 20, 109, 15);
+        jPanel2.add(CodigoProfessor);
+        CodigoProfessor.setBounds(450, 10, 60, 30);
 
         botaoProcurar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoProcurar.setText("Procurar");
         jPanel2.add(botaoProcurar);
         botaoProcurar.setBounds(520, 10, 90, 30);
-        jPanel2.add(campoNome);
-        campoNome.setBounds(450, 50, 161, 30);
-
-        Nome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Nome.setText("Nome");
         jPanel2.add(Nome);
-        Nome.setBounds(330, 60, 32, 15);
+        Nome.setBounds(450, 50, 161, 30);
 
-        Login.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Login.setText("Login");
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNome.setText("Nome");
+        jPanel2.add(txtNome);
+        txtNome.setBounds(330, 60, 32, 15);
+
+        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtLogin.setText("Login");
+        jPanel2.add(txtLogin);
+        txtLogin.setBounds(330, 140, 29, 15);
         jPanel2.add(Login);
-        Login.setBounds(330, 140, 29, 15);
-        jPanel2.add(campoLogin);
-        campoLogin.setBounds(450, 130, 161, 30);
-        jPanel2.add(campoSenha);
-        campoSenha.setBounds(450, 170, 161, 30);
-
-        Senha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Senha.setText("Senha");
+        Login.setBounds(450, 130, 161, 30);
         jPanel2.add(Senha);
-        Senha.setBounds(330, 180, 34, 15);
+        Senha.setBounds(450, 170, 161, 30);
 
-        Contato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Contato.setText("Contato");
-        jPanel2.add(Contato);
-        Contato.setBounds(330, 300, 50, 15);
+        txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSenha.setText("Senha");
+        jPanel2.add(txtSenha);
+        txtSenha.setBounds(330, 180, 34, 15);
+
+        txtContato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtContato.setText("Contato");
+        jPanel2.add(txtContato);
+        txtContato.setBounds(330, 300, 50, 15);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -196,88 +205,94 @@ public class Professor extends javax.swing.JFrame {
         jPanel2.add(botaoAtualizar);
         botaoAtualizar.setBounds(320, 420, 90, 30);
 
-        Sexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Sexo.setText("Sexo");
-        jPanel2.add(Sexo);
-        Sexo.setBounds(330, 100, 27, 15);
+        txtSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSexo.setText("Sexo");
+        jPanel2.add(txtSexo);
+        txtSexo.setBounds(330, 100, 27, 15);
 
-        caixaSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        caixaSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
-        caixaSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaSexoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(caixaSexo);
-        caixaSexo.setBounds(450, 90, 160, 30);
+        txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDisciplina.setText("Disciplina");
+        jPanel2.add(txtDisciplina);
+        txtDisciplina.setBounds(330, 220, 47, 20);
+        jPanel2.add(Contato);
+        Contato.setBounds(450, 290, 160, 30);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Disciplina");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(330, 220, 47, 20);
-        jPanel2.add(campoContato);
-        campoContato.setBounds(450, 290, 160, 30);
-
-        Email.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Email.setText("Email");
+        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEmail.setText("Email");
+        jPanel2.add(txtEmail);
+        txtEmail.setBounds(330, 340, 27, 15);
         jPanel2.add(Email);
-        Email.setBounds(330, 340, 27, 15);
-        jPanel2.add(campoEmail);
-        campoEmail.setBounds(450, 330, 160, 30);
+        Email.setBounds(450, 330, 160, 30);
 
-        Titulacoes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Titulacoes.setText("Titulações:");
-        jPanel2.add(Titulacoes);
-        Titulacoes.setBounds(640, 10, 80, 30);
-
-        selecaoLicenciatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoLicenciatura.setText("Licenciatura");
-        jPanel2.add(selecaoLicenciatura);
-        selecaoLicenciatura.setBounds(640, 30, 100, 30);
-
-        selecaoBacharelado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoBacharelado.setText("Bacharelado");
-        jPanel2.add(selecaoBacharelado);
-        selecaoBacharelado.setBounds(750, 30, 90, 30);
-
-        selecaoEspecializacao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoEspecializacao.setText("Especialização");
-        jPanel2.add(selecaoEspecializacao);
-        selecaoEspecializacao.setBounds(640, 70, 100, 30);
-
-        selecaoMestrado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoMestrado.setText("Mestrado");
-        jPanel2.add(selecaoMestrado);
-        selecaoMestrado.setBounds(750, 70, 90, 30);
-
-        selecaoDoutorado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoDoutorado.setText("Doutorado");
-        jPanel2.add(selecaoDoutorado);
-        selecaoDoutorado.setBounds(640, 100, 90, 40);
-
-        selecaoPosDoutorado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        selecaoPosDoutorado.setText("Pós-Doutorado");
-        jPanel2.add(selecaoPosDoutorado);
-        selecaoPosDoutorado.setBounds(750, 110, 110, 20);
+        txtTitulacoes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTitulacoes.setText("Titulações:");
+        jPanel2.add(txtTitulacoes);
+        txtTitulacoes.setBounds(640, 0, 80, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Experiências anteriores ou Currículo:");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(640, 140, 200, 30);
 
-        jScrollPane1.setViewportView(textoExperiencias);
+        jScrollPane1.setViewportView(Curriculo);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(640, 180, 200, 230);
+        jPanel2.add(Disciplina1);
+        Disciplina1.setBounds(450, 210, 160, 30);
+        jPanel2.add(Disciplina2);
+        Disciplina2.setBounds(450, 250, 160, 30);
+        jPanel2.add(Sexo);
+        Sexo.setBounds(450, 90, 160, 30);
 
-        DiretorTurma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        DiretorTurma.setText("Diretor de Turma");
-        jPanel2.add(DiretorTurma);
-        DiretorTurma.setBounds(640, 420, 130, 23);
-        jPanel2.add(campoDisciplina1);
-        campoDisciplina1.setBounds(450, 210, 160, 30);
-        jPanel2.add(campoDisciplina2);
-        campoDisciplina2.setBounds(450, 250, 160, 30);
+        Especializacao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Especializacao.setText("Especialização");
+        jPanel2.add(Especializacao);
+        Especializacao.setBounds(620, 120, 80, 15);
+        jPanel2.add(Licenciatura);
+        Licenciatura.setBounds(700, 110, 30, 30);
+
+        txtLicenciatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtLicenciatura.setText("Licenciatura");
+        jPanel2.add(txtLicenciatura);
+        txtLicenciatura.setBounds(630, 40, 70, 15);
+        jPanel2.add(Bacharelado);
+        Bacharelado.setBounds(700, 30, 30, 30);
+
+        txtBacharelado1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtBacharelado1.setText("Bacharelado");
+        jPanel2.add(txtBacharelado1);
+        txtBacharelado1.setBounds(630, 80, 70, 15);
+        jPanel2.add(Licenciatura1);
+        Licenciatura1.setBounds(700, 70, 30, 30);
+
+        txtMestrado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtMestrado.setText("Mestrado");
+        jPanel2.add(txtMestrado);
+        txtMestrado.setBounds(740, 40, 70, 15);
+        jPanel2.add(Mestrado);
+        Mestrado.setBounds(810, 30, 30, 30);
+
+        txtDoutorado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDoutorado.setText("Doutorado");
+        jPanel2.add(txtDoutorado);
+        txtDoutorado.setBounds(740, 80, 70, 15);
+        jPanel2.add(Doutorado);
+        Doutorado.setBounds(810, 70, 30, 30);
+
+        txtPosdoutorado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPosdoutorado.setText("Pós-Doutorado");
+        jPanel2.add(txtPosdoutorado);
+        txtPosdoutorado.setBounds(730, 120, 90, 15);
+        jPanel2.add(Posdoutorado);
+        Posdoutorado.setBounds(810, 110, 30, 30);
+
+        txtDiretordeturma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDiretordeturma.setText("Diretor de Turma");
+        jPanel2.add(txtDiretordeturma);
+        txtDiretordeturma.setBounds(640, 430, 100, 15);
+        jPanel2.add(Diretordeturma);
+        Diretordeturma.setBounds(740, 420, 30, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -360,13 +375,13 @@ public class Professor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        campoCodigoProfessor.setText("");
-        campoNome.setText("");
-        campoLogin.setText("");
-        campoSenha.setText("");
-        campoContato.setText("");
-        campoEmail.setText("");
-        textoExperiencias.setText("");
+        CodigoProfessor.setText("");
+        Nome.setText("");
+        Login.setText("");
+        Senha.setText("");
+        Contato.setText("");
+        Email.setText("");
+        Curriculo.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
@@ -376,10 +391,6 @@ public class Professor extends javax.swing.JFrame {
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoExcluirActionPerformed
-
-    private void caixaSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaSexoActionPerformed
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
         Assunto assunto = new Assunto();
@@ -406,7 +417,7 @@ public class Professor extends javax.swing.JFrame {
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
         Questão questão = new Questão();
         questão.setVisible(true);
-        dispose();
+       dispose();
     }//GEN-LAST:event_QuestãoMouseClicked
 
     private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
@@ -420,27 +431,42 @@ public class Professor extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        String nome = campoNome.getText();
-        String login = campoLogin.getText();
-        String senha = campoSenha.getText();
-        
+        String codigo = CodigoProfessor.getText();
+        String nome = Nome.getText();
+        String login = Login.getText();
+        String senha = Senha.getText();
+        String sexo = Sexo.getText();
+        String disciplina1 = Disciplina1.getText();
+        String disciplina2 = Disciplina2.getText();
+        String contato = Contato.getText();
+        String email = Email.getText();
+        String licenciatura = Especializacao.getText();
+        String bacharelado = txtLicenciatura.getText();
+        String especializacao = Especializacao.getText();
+        String mestrado = Mestrado.getText();
+        String doutorado = Doutorado.getText();
+        String posdoutorado = txtPosdoutorado.getText();
+        String curriculo = Curriculo.getText();
+        String diretordeturma = txtDiretordeturma.getText();
+                
         if(nome.equals("") || login.equals("") || senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.", "QSys", JOptionPane.WARNING_MESSAGE);
         }else{
             Connection con = Conexao.AbrirConexao();
             ProfessorDAO sql = new ProfessorDAO(con);
-            Professor f = new Professor();
+            Professor p = new Professor();
             
-            f.setNome(nome);
-            f.setLogin(login);
-            f.setSenha(senha);
+            p.setNome(nome);
+            p.setLogin(login);
+            p.setSenha(senha);
             
-            sql.Inserir_Professor(f);
+            sql.Inserir_Professor(p);
             Conexao.FecharConexao(con);
             
-            campoNome.setText("");
-            campoLogin.setText("");
-            campoSenha.setText("");
+            Nome.setText("");
+            Login.setText("");
+            Senha.setText("");
+            
             
             JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.","QSys", JOptionPane.INFORMATION_MESSAGE );
             dispose();
@@ -448,32 +474,35 @@ public class Professor extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-        if(campoNome.equals("") || campoLogin.equals("") || campoSenha.equals("")){
+        if(Nome.equals("") || Login.equals("") || Senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
         }else{
             Connection con = Conexao.AbrirConexao();
             ProfessorDAO sql = new ProfessorDAO(con);
-            int campoCodigoProfessor = Integer.parseInt(campoCodigoProfessor);
-            Professor f = new Professor();
+            Professor p = new Professor();
             
-            f.setCodigo(codigo);
-            f.setNome(nome);
-            f.setLogin(login);
-            f.setSenha(senha);
+            p.setCodigo(CodigoProfessor);
+            p.setNome(Nome);
+            p.setLogin(Login);
+            p.setSenha(Senha);
             
-            sql.Alterar_Professor(f);
+           //sql.Alterar_Professor(p); LLLLLLLLLLLLFSH$RFDNH$%GDN%GDm5gdm5jgmfcz6,5khfc6,fhwlvjvl3 vvvevevev
+            //NÃO SE ESQUEÇA
+            //NÃO SE ESQUEÇA
+            //NÃO SE ESQUEÇA DE VER O SQL.ALTERAR_PROFESSOR
+            //NÃO SE ESQUEÇA
             Conexao.FecharConexao(con);
             
-            campoCodigoProfessor.setText("");
-            campoNome.setText("");
-            campoLogin.setText("");
-            campoSenha.setText("");
+            CodigoProfessor.setText("");
+            Nome.setText("");
+            Login.setText("");
+            Senha.setText("");
             
         }
     }//GEN-LAST:event_botaoAtualizarActionPerformed
 
     private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
-        if(campoNome.getText().equals("")){
+        if(Nome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Preencha o campo ''Código do professor'' com seu respectivo código para consultá-lo.");
         }
     }//GEN-LAST:event_botaoConsultarActionPerformed
@@ -518,22 +547,31 @@ public class Professor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Assunto;
-    private javax.swing.JLabel CodigoDoProfessor;
-    private javax.swing.JLabel Contato;
-    private javax.swing.JCheckBox DiretorTurma;
+    private javax.swing.JTextField Bacharelado;
+    private javax.swing.JTextField CodigoProfessor;
+    private javax.swing.JTextField Contato;
+    private javax.swing.JTextPane Curriculo;
+    private javax.swing.JTextField Diretordeturma;
     private javax.swing.JMenu Disciplina;
-    private javax.swing.JLabel Email;
+    private javax.swing.JTextField Disciplina1;
+    private javax.swing.JTextField Disciplina2;
+    private javax.swing.JTextField Doutorado;
+    private javax.swing.JTextField Email;
+    private javax.swing.JLabel Especializacao;
     private javax.swing.JLabel Fundo;
-    private javax.swing.JLabel Login;
-    private javax.swing.JLabel Nome;
+    private javax.swing.JTextField Licenciatura;
+    private javax.swing.JTextField Licenciatura1;
+    private javax.swing.JTextField Login;
+    private javax.swing.JTextField Mestrado;
+    private javax.swing.JTextField Nome;
+    private javax.swing.JTextField Posdoutorado;
     private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;
     private javax.swing.JMenu Sair;
-    private javax.swing.JLabel Senha;
-    private javax.swing.JLabel Sexo;
+    private javax.swing.JPasswordField Senha;
+    private javax.swing.JTextField Sexo;
     private javax.swing.JMenu Sobre;
-    private javax.swing.JLabel Titulacoes;
     private javax.swing.JButton botaoAtualizar;
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoCancelar;
@@ -541,17 +579,7 @@ public class Professor extends javax.swing.JFrame {
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoProcurar;
-    private javax.swing.JComboBox caixaSexo;
-    private javax.swing.JTextField campoCodigoProfessor;
-    private javax.swing.JTextField campoContato;
-    private javax.swing.JTextField campoDisciplina1;
-    private javax.swing.JTextField campoDisciplina2;
-    private javax.swing.JTextField campoEmail;
-    private javax.swing.JTextField campoLogin;
-    private javax.swing.JTextField campoNome;
-    private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -559,13 +587,21 @@ public class Professor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JCheckBox selecaoBacharelado;
-    private javax.swing.JCheckBox selecaoDoutorado;
-    private javax.swing.JCheckBox selecaoEspecializacao;
-    private javax.swing.JCheckBox selecaoLicenciatura;
-    private javax.swing.JCheckBox selecaoMestrado;
-    private javax.swing.JCheckBox selecaoPosDoutorado;
-    private javax.swing.JTextPane textoExperiencias;
+    private javax.swing.JLabel txtBacharelado1;
+    private javax.swing.JLabel txtCodigoProfessor;
+    private javax.swing.JLabel txtContato;
+    private javax.swing.JLabel txtDiretordeturma;
+    private javax.swing.JLabel txtDisciplina;
+    private javax.swing.JLabel txtDoutorado;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtLicenciatura;
+    private javax.swing.JLabel txtLogin;
+    private javax.swing.JLabel txtMestrado;
+    private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txtPosdoutorado;
+    private javax.swing.JLabel txtSenha;
+    private javax.swing.JLabel txtSexo;
+    private javax.swing.JLabel txtTitulacoes;
     // End of variables declaration//GEN-END:variables
 
     private void setNome(String nome) {
@@ -577,6 +613,22 @@ public class Professor extends javax.swing.JFrame {
     }
 
     private void setLogin(String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setNome(JTextField Nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSenha(JPasswordField Senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setLogin(JTextField Login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setCodigo(JTextField CodigoProfessor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

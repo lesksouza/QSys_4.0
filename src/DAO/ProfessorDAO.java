@@ -251,10 +251,23 @@ public class ProfessorDAO extends ExecuteSQL {
         String sql = "UPDATE professores SET Codigo = ?, Nome = ?, Login = ?, Senha = ?, Disciplina1 = ?, Disciplina2 = ?, Contato = ?, Email = ?, Licenciatura = ?, Bacharelado = ?, Especializacao = ?, Mestrado = ?, Doutorado = ?, Posdoutorado = ?, Curriculo = ?, Diretordeturma = ? WHERE Codigo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(1, p.getNome());
-            ps.setString(2, p.getLogin());
-            ps.setString(3, p.getSenha());
-            ps.setString(4, "" + p.getCodigo());
+            ps.setInt(1, p.getCodigo());
+            ps.setString(2, p.getNome());
+            ps.setString(3, p.getSexo());
+            ps.setString(4, p.getLogin());
+            ps.setString(5, p.getSenha());
+            ps.setString(6, p.getDisciplina1());
+            ps.setString(7, p.getDisciplina2());
+            ps.setString(8, p.getContato());
+            ps.setString(9, p.getEmail());
+            ps.setInt(10, p.getLicenciatura());
+            ps.setInt(11, p.getBacharelado());
+            ps.setInt(12, p.getEspecializacao());
+            ps.setInt(13, p.getMestrado());
+            ps.setInt(14, p.getDoutorado());
+            ps.setInt(15, p.getPosdoutorado());
+            ps.setString(16, p.getCurriculo());
+            ps.setInt(17, p.getDiretordeturma());
             
             if(ps.executeUpdate() > 0){
                 JOptionPane.showMessageDialog(null,"Professor atualizado com sucesso.");

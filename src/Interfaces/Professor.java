@@ -67,12 +67,12 @@ public class Professor extends javax.swing.JFrame {
         Disciplina1 = new javax.swing.JTextField();
         Disciplina2 = new javax.swing.JTextField();
         Sexo = new javax.swing.JTextField();
-        Especializacao = new javax.swing.JLabel();
-        Licenciatura = new javax.swing.JTextField();
+        txtEspecializacao = new javax.swing.JLabel();
+        Especializacao = new javax.swing.JTextField();
         txtLicenciatura = new javax.swing.JLabel();
+        Licenciatura = new javax.swing.JTextField();
+        txtBacharelado = new javax.swing.JLabel();
         Bacharelado = new javax.swing.JTextField();
-        txtBacharelado1 = new javax.swing.JLabel();
-        Licenciatura1 = new javax.swing.JTextField();
         txtMestrado = new javax.swing.JLabel();
         Mestrado = new javax.swing.JTextField();
         txtDoutorado = new javax.swing.JLabel();
@@ -245,26 +245,26 @@ public class Professor extends javax.swing.JFrame {
         jPanel2.add(Sexo);
         Sexo.setBounds(450, 90, 160, 30);
 
-        Especializacao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Especializacao.setText("Especialização");
+        txtEspecializacao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEspecializacao.setText("Especialização");
+        jPanel2.add(txtEspecializacao);
+        txtEspecializacao.setBounds(620, 120, 80, 15);
         jPanel2.add(Especializacao);
-        Especializacao.setBounds(620, 120, 80, 15);
-        jPanel2.add(Licenciatura);
-        Licenciatura.setBounds(700, 110, 30, 30);
+        Especializacao.setBounds(700, 110, 30, 30);
 
         txtLicenciatura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtLicenciatura.setText("Licenciatura");
         jPanel2.add(txtLicenciatura);
         txtLicenciatura.setBounds(630, 40, 70, 15);
-        jPanel2.add(Bacharelado);
-        Bacharelado.setBounds(700, 30, 30, 30);
+        jPanel2.add(Licenciatura);
+        Licenciatura.setBounds(700, 30, 30, 30);
 
-        txtBacharelado1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtBacharelado1.setText("Bacharelado");
-        jPanel2.add(txtBacharelado1);
-        txtBacharelado1.setBounds(630, 80, 70, 15);
-        jPanel2.add(Licenciatura1);
-        Licenciatura1.setBounds(700, 70, 30, 30);
+        txtBacharelado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtBacharelado.setText("Bacharelado");
+        jPanel2.add(txtBacharelado);
+        txtBacharelado.setBounds(630, 80, 70, 15);
+        jPanel2.add(Bacharelado);
+        Bacharelado.setBounds(700, 70, 30, 30);
 
         txtMestrado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtMestrado.setText("Mestrado");
@@ -377,14 +377,26 @@ public class Professor extends javax.swing.JFrame {
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
         CodigoProfessor.setText("");
         Nome.setText("");
+        Sexo.setText("");
         Login.setText("");
         Senha.setText("");
+        Disciplina1.setText("");
+        Disciplina2.setText("");
         Contato.setText("");
         Email.setText("");
+        Especializacao.setText("");
+        Licenciatura.setText("");
+        txtEspecializacao.setText("");
+        Mestrado.setText("");
+        Doutorado.setText("");
+        Posdoutorado.setText("");
         Curriculo.setText("");
+        Diretordeturma.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        Principal principal = new Principal();
+        principal.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
@@ -417,7 +429,7 @@ public class Professor extends javax.swing.JFrame {
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
         Questão questão = new Questão();
         questão.setVisible(true);
-       dispose();
+        dispose();
     }//GEN-LAST:event_QuestãoMouseClicked
 
     private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
@@ -440,9 +452,9 @@ public class Professor extends javax.swing.JFrame {
         String disciplina2 = Disciplina2.getText();
         String contato = Contato.getText();
         String email = Email.getText();
-        String licenciatura = Especializacao.getText();
+        String licenciatura = txtEspecializacao.getText();
         String bacharelado = txtLicenciatura.getText();
-        String especializacao = Especializacao.getText();
+        String especializacao = txtEspecializacao.getText();
         String mestrado = Mestrado.getText();
         String doutorado = Doutorado.getText();
         String posdoutorado = txtPosdoutorado.getText();
@@ -486,11 +498,7 @@ public class Professor extends javax.swing.JFrame {
             p.setLogin(Login);
             p.setSenha(Senha);
             
-           //sql.Alterar_Professor(p); LLLLLLLLLLLLFSH$RFDNH$%GDN%GDm5gdm5jgmfcz6,5khfc6,fhwlvjvl3 vvvevevev
-            //NÃO SE ESQUEÇA
-            //NÃO SE ESQUEÇA
-            //NÃO SE ESQUEÇA DE VER O SQL.ALTERAR_PROFESSOR
-            //NÃO SE ESQUEÇA
+            //sql.Alterar_Professor(p);
             Conexao.FecharConexao(con);
             
             CodigoProfessor.setText("");
@@ -557,10 +565,9 @@ public class Professor extends javax.swing.JFrame {
     private javax.swing.JTextField Disciplina2;
     private javax.swing.JTextField Doutorado;
     private javax.swing.JTextField Email;
-    private javax.swing.JLabel Especializacao;
+    private javax.swing.JTextField Especializacao;
     private javax.swing.JLabel Fundo;
     private javax.swing.JTextField Licenciatura;
-    private javax.swing.JTextField Licenciatura1;
     private javax.swing.JTextField Login;
     private javax.swing.JTextField Mestrado;
     private javax.swing.JTextField Nome;
@@ -587,13 +594,14 @@ public class Professor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel txtBacharelado1;
+    private javax.swing.JLabel txtBacharelado;
     private javax.swing.JLabel txtCodigoProfessor;
     private javax.swing.JLabel txtContato;
     private javax.swing.JLabel txtDiretordeturma;
     private javax.swing.JLabel txtDisciplina;
     private javax.swing.JLabel txtDoutorado;
     private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtEspecializacao;
     private javax.swing.JLabel txtLicenciatura;
     private javax.swing.JLabel txtLogin;
     private javax.swing.JLabel txtMestrado;

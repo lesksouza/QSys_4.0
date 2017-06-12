@@ -106,6 +106,7 @@ public class Login extends javax.swing.JFrame {
         ProfessorDAO sql = new ProfessorDAO(con);        
         String login = Usuario.getText();
         String senha = Senha.getText();
+        
         if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
             Usuario.setText("");

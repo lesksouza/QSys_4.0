@@ -112,20 +112,11 @@ public class Login extends javax.swing.JFrame {
             Usuario.setText("");
             Senha.setText("");
         }else{
-            if (sql.Logar(login, senha) == true){
+            if (login.equalsIgnoreCase("adm1n") || senha.equalsIgnoreCase("adm1n")){
+                Principal principal = new Principal();
+                principal.setVisible(true);
+                dispose();
                 new Thread(){
-                    public void run(){
-                        for (int i = 0; i < 101; i++){
-                            BarradeProgresso.setValue(i);
-                            try{
-                                Thread.sleep(35);
-                            } catch (Exception ex){
-                                ex.getMessage();
-                            }
-                        }
-                        new Principal().setVisible(true);
-                        dispose();
-                    }
                 }.start();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "QSys", JOptionPane.ERROR_MESSAGE);

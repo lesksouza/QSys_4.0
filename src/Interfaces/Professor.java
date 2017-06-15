@@ -242,6 +242,12 @@ public class Professor extends javax.swing.JFrame {
         Disciplina1.setBounds(450, 210, 160, 30);
         jPanel2.add(Disciplina2);
         Disciplina2.setBounds(450, 250, 160, 30);
+
+        Sexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SexoActionPerformed(evt);
+            }
+        });
         jPanel2.add(Sexo);
         Sexo.setBounds(450, 90, 160, 30);
 
@@ -377,7 +383,6 @@ public class Professor extends javax.swing.JFrame {
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
         CodigoProfessor.setText("");
         Nome.setText("");
-        Sexo.setText("");
         Login.setText("");
         Senha.setText("");
         Disciplina1.setText("");
@@ -386,7 +391,7 @@ public class Professor extends javax.swing.JFrame {
         Email.setText("");
         Especializacao.setText("");
         Licenciatura.setText("");
-        txtEspecializacao.setText("");
+        Bacharelado.setText("");
         Mestrado.setText("");
         Doutorado.setText("");
         Posdoutorado.setText("");
@@ -471,6 +476,19 @@ public class Professor extends javax.swing.JFrame {
             p.setNome(nome);
             p.setLogin(login);
             p.setSenha(senha);
+            p.setSexo(sexo);
+            p.setDisciplina1(disciplina1);
+            p.setDisciplina2(disciplina2);
+            p.setContato(contato);
+            p.setEmail(email);
+            p.setLicenciatura(licenciatura);
+            p.setBacharelado(bacharelado);
+            p.setEspecializacao(especializacao);
+            p.setMestrado(mestrado);
+            p.setDoutorado(doutorado);
+            p.setPosdoutorado(posdoutorado);
+            p.setCurriculo(curriculo);
+            p.setDiretordeturma(diretordeturma);
             
             sql.Inserir_Professor(p);
             Conexao.FecharConexao(con);
@@ -478,7 +496,19 @@ public class Professor extends javax.swing.JFrame {
             Nome.setText("");
             Login.setText("");
             Senha.setText("");
-            
+            Sexo.setText("");
+            Disciplina1.setText("");
+            Disciplina2.setText("");
+            Contato.setText("");
+            Email.setText("");
+            Licenciatura.setText("");
+            Bacharelado.setText("");
+            Especializacao.setText("");
+            Mestrado.setText("");
+            Doutorado.setText("");
+            Posdoutorado.setText("");
+            Curriculo.setText("");
+            Diretordeturma.setText("");
             
             JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.","QSys", JOptionPane.INFORMATION_MESSAGE );
             dispose();
@@ -514,6 +544,10 @@ public class Professor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha o campo ''Código do professor'' com seu respectivo código para consultá-lo.");
         }
     }//GEN-LAST:event_botaoConsultarActionPerformed
+
+    private void SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -637,6 +671,58 @@ public class Professor extends javax.swing.JFrame {
     }
 
     private void setCodigo(JTextField CodigoProfessor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSexo(String sexo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDisciplina1(String disciplina1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDisciplina2(String disciplina2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setContato(String contato) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setEmail(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setLicenciatura(String licenciatura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setBacharelado(String bacharelado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setEspecializacao(String especializacao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setMestrado(String mestrado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDoutorado(String doutorado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setPosdoutorado(String posdoutorado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDiretordeturma(String diretordeturma) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setCurriculo(String curriculo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

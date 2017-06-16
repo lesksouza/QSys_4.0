@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package Interfaces.Admin;
-
 import Interfaces.CadastrarProfessor;
 
 /**
  *
  * @author pc
  */
-public class EscProf extends javax.swing.JInternalFrame {
+public class EscolhaProfessor extends javax.swing.JFrame {
 
     /**
-     * Creates new form EscProf
+     * Creates new form EscolhaProfessor
      */
-    public EscProf() {
+    public EscolhaProfessor() {
         initComponents();
     }
 
@@ -34,10 +33,9 @@ public class EscProf extends javax.swing.JInternalFrame {
         botaoAltProf = new javax.swing.JButton();
         botaoExcProf = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Fundo = new javax.swing.JLabel();
 
-        setClosable(true);
-        setTitle("CRUD Professor");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         botaoCadProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -48,22 +46,22 @@ public class EscProf extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(botaoCadProf);
-        botaoCadProf.setBounds(52, 33, 180, 34);
+        botaoCadProf.setBounds(60, 40, 180, 34);
 
         botaoConProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoConProf.setText("Consultar Professor");
         getContentPane().add(botaoConProf);
-        botaoConProf.setBounds(52, 73, 180, 34);
+        botaoConProf.setBounds(60, 80, 180, 34);
 
         botaoAltProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoAltProf.setText("Alterar Professor");
         getContentPane().add(botaoAltProf);
-        botaoAltProf.setBounds(52, 113, 180, 34);
+        botaoAltProf.setBounds(60, 120, 180, 34);
 
         botaoExcProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoExcProf.setText("Excluir Professor");
         getContentPane().add(botaoExcProf);
-        botaoExcProf.setBounds(52, 153, 180, 34);
+        botaoExcProf.setBounds(60, 160, 180, 34);
 
         Cancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Cancelar.setText("Cancelar");
@@ -73,14 +71,14 @@ public class EscProf extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(Cancelar);
-        Cancelar.setBounds(106, 220, 77, 31);
+        Cancelar.setBounds(120, 230, 77, 31);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoLogin.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 290, 420);
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoLogin.jpg"))); // NOI18N
+        getContentPane().add(Fundo);
+        Fundo.setBounds(-10, -10, 320, 460);
 
-        setBounds(0, 0, 300, 300);
+        setSize(new java.awt.Dimension(316, 338));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoCadProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadProfActionPerformed
@@ -93,13 +91,47 @@ public class EscProf extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EscolhaProfessor().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
+    private javax.swing.JLabel Fundo;
     private javax.swing.JButton botaoAltProf;
     private javax.swing.JButton botaoCadProf;
     private javax.swing.JButton botaoConProf;
     private javax.swing.JButton botaoExcProf;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

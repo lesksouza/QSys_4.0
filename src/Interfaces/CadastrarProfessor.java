@@ -78,7 +78,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Professor");
+        setTitle("Professor [Domínio do Administrador]");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 339));
@@ -90,40 +90,40 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtCodigoProfessor.setText("Código do professor");
         jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(560, 30, 109, 15);
+        txtCodigoProfessor.setBounds(550, 50, 109, 15);
         jPanel2.add(CodigoProfessor);
-        CodigoProfessor.setBounds(680, 20, 60, 30);
+        CodigoProfessor.setBounds(670, 40, 60, 30);
 
         botaoProcurar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoProcurar.setText("Procurar");
         jPanel2.add(botaoProcurar);
-        botaoProcurar.setBounds(750, 20, 90, 30);
+        botaoProcurar.setBounds(740, 40, 90, 30);
         jPanel2.add(Nome);
-        Nome.setBounds(680, 60, 161, 30);
+        Nome.setBounds(670, 80, 161, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.setText("Nome");
         jPanel2.add(txtNome);
-        txtNome.setBounds(560, 70, 32, 15);
+        txtNome.setBounds(550, 90, 32, 15);
 
         txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtLogin.setText("Login");
         jPanel2.add(txtLogin);
-        txtLogin.setBounds(560, 150, 29, 15);
+        txtLogin.setBounds(550, 170, 29, 15);
         jPanel2.add(Login);
-        Login.setBounds(680, 140, 161, 30);
+        Login.setBounds(670, 160, 161, 30);
         jPanel2.add(Senha);
-        Senha.setBounds(680, 180, 161, 30);
+        Senha.setBounds(670, 200, 161, 30);
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtSenha.setText("Senha");
         jPanel2.add(txtSenha);
-        txtSenha.setBounds(560, 190, 34, 15);
+        txtSenha.setBounds(550, 210, 34, 15);
 
         txtContato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtContato.setText("Contato");
         jPanel2.add(txtContato);
-        txtContato.setBounds(560, 310, 50, 15);
+        txtContato.setBounds(550, 330, 50, 15);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -133,7 +133,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(660, 390, 90, 30);
+        botaoLimpar.setBounds(650, 400, 80, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -143,7 +143,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(760, 390, 90, 30);
+        botaoCancelar.setBounds(740, 400, 90, 30);
 
         botaoCadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCadastrar.setText("Cadastrar");
@@ -153,30 +153,30 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCadastrar);
-        botaoCadastrar.setBounds(560, 390, 90, 30);
+        botaoCadastrar.setBounds(550, 400, 90, 30);
 
         txtSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtSexo.setText("Sexo");
         jPanel2.add(txtSexo);
-        txtSexo.setBounds(560, 110, 27, 15);
+        txtSexo.setBounds(550, 130, 27, 15);
 
         txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtDisciplina.setText("Disciplina");
         jPanel2.add(txtDisciplina);
-        txtDisciplina.setBounds(560, 230, 47, 20);
+        txtDisciplina.setBounds(550, 250, 47, 20);
         jPanel2.add(Contato);
-        Contato.setBounds(680, 300, 160, 30);
+        Contato.setBounds(670, 320, 160, 30);
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEmail.setText("Email");
         jPanel2.add(txtEmail);
-        txtEmail.setBounds(560, 350, 27, 15);
+        txtEmail.setBounds(550, 370, 27, 15);
         jPanel2.add(Email);
-        Email.setBounds(680, 340, 160, 30);
+        Email.setBounds(670, 360, 160, 30);
         jPanel2.add(Disciplina1);
-        Disciplina1.setBounds(680, 220, 160, 30);
+        Disciplina1.setBounds(670, 240, 160, 30);
         jPanel2.add(Disciplina2);
-        Disciplina2.setBounds(680, 260, 160, 30);
+        Disciplina2.setBounds(670, 280, 160, 30);
 
         Sexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +184,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Sexo);
-        Sexo.setBounds(680, 100, 160, 30);
+        Sexo.setBounds(670, 120, 160, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo.jpg"))); // NOI18N
         jPanel2.add(Fundo);

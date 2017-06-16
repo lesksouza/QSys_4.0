@@ -43,7 +43,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         Subtitulo = new javax.swing.JLabel();
         letrinhasMiudas = new javax.swing.JLabel();
-        FundoPainel = new javax.swing.JDesktopPane();
+        Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Professor = new javax.swing.JMenu();
         Assunto = new javax.swing.JMenu();
@@ -87,19 +87,9 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jPanel2.add(letrinhasMiudas);
         letrinhasMiudas.setBounds(20, 80, 190, 14);
 
-        javax.swing.GroupLayout FundoPainelLayout = new javax.swing.GroupLayout(FundoPainel);
-        FundoPainel.setLayout(FundoPainelLayout);
-        FundoPainelLayout.setHorizontalGroup(
-            FundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
-        );
-        FundoPainelLayout.setVerticalGroup(
-            FundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(FundoPainel);
-        FundoPainel.setBounds(0, 0, 850, 460);
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Terra.jpg"))); // NOI18N
+        jPanel2.add(Fundo);
+        Fundo.setBounds(-340, 0, 1270, 470);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);
@@ -195,7 +185,9 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_SobreMouseClicked
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        
+        EscolhaProfessor escprof = new EscolhaProfessor();
+        escprof.setVisible(true);
+        dispose();
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
@@ -221,9 +213,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void ProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfessorActionPerformed
-        EscProf escolha = new EscProf();
-        FundoPainel.add(escolha);
-        escolha.setVisible(true);
+        
     }//GEN-LAST:event_ProfessorActionPerformed
 
     /**
@@ -279,7 +269,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Assunto;
     private javax.swing.JMenu Disciplina;
-    private javax.swing.JDesktopPane FundoPainel;
+    private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;

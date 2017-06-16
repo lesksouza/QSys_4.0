@@ -27,7 +27,7 @@ public class ProfessorDAO extends ExecuteSQL {
        
         boolean finalResult = false;
         try {
-            String consulta = "select Login, Senha from professores WHERE Login = '" + Login + "' and Senha = '" + Senha + "'";
+            String consulta = "select login, senha from professores WHERE login = '" + Login + "' and senha = '" + Senha + "'";
             PreparedStatement ps = getCon().prepareStatement(consulta);
             ResultSet rs = ps.executeQuery();
             
@@ -46,7 +46,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public String Inserir_Professor(Professor p){
-        String sql = "INSERT INTO professores VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO professores VALUES (0,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
@@ -58,14 +58,6 @@ public class ProfessorDAO extends ExecuteSQL {
             ps.setString(6, p.getDisciplina2());
             ps.setString(7, p.getContato());
             ps.setString(8, p.getEmail());
-            ps.setInt(9, p.getLicenciatura());
-            ps.setInt(10, p.getBacharelado());
-            ps.setInt(11, p.getEspecializacao());
-            ps.setInt(12, p.getMestrado());
-            ps.setInt(13, p.getDoutorado());
-            ps.setInt(14, p.getPosdoutorado());
-            ps.setString(15, p.getCurriculo());
-            ps.setInt(16, p.getDiretordeturma());
             
             if(ps.executeUpdate() > 0){
                 return "Professor cadastrado com sucesso.";
@@ -78,7 +70,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Listar_Professor(){
-        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores";
+        String sql = "SELECT codigo,nome,sexo,login,snha,disciplina1,disciplina2,contato,email FROM professores";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -97,14 +89,6 @@ public class ProfessorDAO extends ExecuteSQL {
                     p.setDisciplina2(rs.getString(7));
                     p.setContato(rs.getString(8));
                     p.setEmail(rs.getString(9));
-                    p.setLicenciatura(rs.getInt(10));
-                    p.setBacharelado(rs.getInt(11));
-                    p.setEspecializacao(rs.getInt(12));
-                    p.setMestrado(rs.getInt(13));
-                    p.setDoutorado(rs.getInt(14));
-                    p.setPosdoutorado(rs.getInt(15));
-                    p.setCurriculo(rs.getString(16));
-                    p.setDiretordeturma(rs.getInt(17));
                     
                     lista.add(p);
                 }
@@ -119,7 +103,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Pesquisar_Nome_Professor(String Nome){
-        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores WHERE nome LIKE '" + Nome + "%'";
+        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professores WHERE nome LIKE '" + Nome + "%'";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -138,14 +122,6 @@ public class ProfessorDAO extends ExecuteSQL {
                     p.setDisciplina2(rs.getString(7));
                     p.setContato(rs.getString(8));
                     p.setEmail(rs.getString(9));
-                    p.setLicenciatura(rs.getInt(10));
-                    p.setBacharelado(rs.getInt(11));
-                    p.setEspecializacao(rs.getInt(12));
-                    p.setMestrado(rs.getInt(13));
-                    p.setDoutorado(rs.getInt(14));
-                    p.setPosdoutorado(rs.getInt(15));
-                    p.setCurriculo(rs.getString(16));
-                    p.setDiretordeturma(rs.getInt(17));
                     
                     lista.add(p);
                 }
@@ -159,7 +135,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Pesquisar_Codigo_Professor(int Codigo){
-        String sql = "SELECT Codigo,Nome,Sexo,Login,Senha,Disciplina1,Disciplina2,Contato,Email,Licenciatura,Bacharelado,Especializacao,Mestrado,Doutorado,Posdoutorado,Curriculo,Diretordeturma FROM professores WHERE Codigo = '" + Codigo + "'" ;
+        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professores WHERE codigo = '" + Codigo + "'" ;
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -178,14 +154,6 @@ public class ProfessorDAO extends ExecuteSQL {
                     p.setDisciplina2(rs.getString(7));
                     p.setContato(rs.getString(8));
                     p.setEmail(rs.getString(9));
-                    p.setLicenciatura(rs.getInt(10));
-                    p.setBacharelado(rs.getInt(11));
-                    p.setEspecializacao(rs.getInt(12));
-                    p.setMestrado(rs.getInt(13));
-                    p.setDoutorado(rs.getInt(14));
-                    p.setPosdoutorado(rs.getInt(15));
-                    p.setCurriculo(rs.getString(16));
-                    p.setDiretordeturma(rs.getInt(17));
                     
                     lista.add(p);
                 }
@@ -206,7 +174,7 @@ public class ProfessorDAO extends ExecuteSQL {
          
         try {
             
-            String sql = "SELECT * FROM professores WHERE Codigo =  " + Codigo + "";
+            String sql = "SELECT * FROM professores WHERE codigo =  " + Codigo + "";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
            
@@ -223,14 +191,6 @@ public class ProfessorDAO extends ExecuteSQL {
                     p.setDisciplina2(rs.getString(7));
                     p.setContato(rs.getString(8));
                     p.setEmail(rs.getString(9));
-                    p.setLicenciatura(rs.getInt(10));
-                    p.setBacharelado(rs.getInt(11));
-                    p.setEspecializacao(rs.getInt(12));
-                    p.setMestrado(rs.getInt(13));
-                    p.setDoutorado(rs.getInt(14));
-                    p.setPosdoutorado(rs.getInt(15));
-                    p.setCurriculo(rs.getString(16));
-                    p.setDiretordeturma(rs.getInt(17));
                 }
             }
         } catch (Exception e) {
@@ -248,7 +208,7 @@ public class ProfessorDAO extends ExecuteSQL {
     
     
     public void Alterar_Professor(Professor p){
-        String sql = "UPDATE professores SET Codigo = ?, Nome = ?, Login = ?, Senha = ?, Disciplina1 = ?, Disciplina2 = ?, Contato = ?, Email = ?, Licenciatura = ?, Bacharelado = ?, Especializacao = ?, Mestrado = ?, Doutorado = ?, Posdoutorado = ?, Curriculo = ?, Diretordeturma = ? WHERE Codigo = ?";
+        String sql = "UPDATE professores SET codigo = ?, nome = ?, login = ?, senha = ?, disciplina1 = ?, disciplina2 = ?, contato = ?, email = ? WHERE codigo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(1, p.getCodigo());
@@ -260,14 +220,6 @@ public class ProfessorDAO extends ExecuteSQL {
             ps.setString(7, p.getDisciplina2());
             ps.setString(8, p.getContato());
             ps.setString(9, p.getEmail());
-            ps.setInt(10, p.getLicenciatura());
-            ps.setInt(11, p.getBacharelado());
-            ps.setInt(12, p.getEspecializacao());
-            ps.setInt(13, p.getMestrado());
-            ps.setInt(14, p.getDoutorado());
-            ps.setInt(15, p.getPosdoutorado());
-            ps.setString(16, p.getCurriculo());
-            ps.setInt(17, p.getDiretordeturma());
             
             if(ps.executeUpdate() > 0){
                 JOptionPane.showMessageDialog(null,"Professor atualizado com sucesso.");
@@ -280,7 +232,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> ListaComboProfessor(){
-        String sql = "SELECT Nome FROM professores ORDER BY Nome";
+        String sql = "SELECT nome FROM professores ORDER BY nome";
         List<Professor> lista = new ArrayList<Professor>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);

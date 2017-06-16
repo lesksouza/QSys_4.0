@@ -17,7 +17,7 @@ public class Conexao {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://127.0.0.1:3306/QSys";
+            String url = "jdbc:mysql://127.0.0.1:3306/qsys";
             con = DriverManager.getConnection(url,"root", "");
                    
         } catch (Exception e) {

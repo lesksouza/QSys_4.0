@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Interfaces.Prof;
 
+import Interfaces.*;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author XPerience
  */
-public class Principal extends javax.swing.JFrame {
+public class PrincipalProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public PrincipalProfessor() {
         initComponents();
     }
 
@@ -39,7 +40,6 @@ public class Principal extends javax.swing.JFrame {
         letrinhasMiudas = new javax.swing.JLabel();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
-        Professor = new javax.swing.JMenu();
         Assunto = new javax.swing.JMenu();
         Disciplina = new javax.swing.JMenu();
         Questão = new javax.swing.JMenu();
@@ -87,14 +87,6 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);
-
-        Professor.setText("Professor");
-        Professor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProfessorMouseClicked(evt);
-            }
-        });
-        jMenuBar2.add(Professor);
 
         Assunto.setText("Assunto");
         Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,12 +167,6 @@ public class Principal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_SobreMouseClicked
 
-    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        Professor professor = new Professor();
-        professor.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_ProfessorMouseClicked
-
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
         Disciplina disciplina = new Disciplina();
         disciplina.setVisible(true);
@@ -220,14 +206,22 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -240,7 +234,7 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new PrincipalProfessor().setVisible(true);
             }
         });
     }
@@ -249,7 +243,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Assunto;
     private javax.swing.JMenu Disciplina;
     private javax.swing.JLabel Fundo;
-    private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;
     private javax.swing.JMenu Sair;

@@ -22,14 +22,6 @@
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="Professor">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Professor"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ProfessorMouseClicked"/>
-          </Events>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="Assunto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Assunto"/>

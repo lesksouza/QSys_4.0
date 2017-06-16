@@ -3,20 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Interfaces.Admin;
 
+import Interfaces.Assunto;
+import Interfaces.Disciplina;
+import Interfaces.Professor;
+import Interfaces.Prova;
+import Interfaces.Questão;
+import Interfaces.Sobre;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author XPerience
  */
-public class Principal extends javax.swing.JFrame {
+public class PrincipalAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public PrincipalAdmin() {
         initComponents();
     }
 
@@ -37,7 +43,7 @@ public class Principal extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         Subtitulo = new javax.swing.JLabel();
         letrinhasMiudas = new javax.swing.JLabel();
-        Fundo = new javax.swing.JLabel();
+        FundoPainel = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         Professor = new javax.swing.JMenu();
         Assunto = new javax.swing.JMenu();
@@ -54,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Principal");
+        setTitle("Tela Principal [Domínio do Administrador]");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 339));
@@ -81,9 +87,19 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(letrinhasMiudas);
         letrinhasMiudas.setBounds(20, 80, 190, 14);
 
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Terra.jpg"))); // NOI18N
-        jPanel2.add(Fundo);
-        Fundo.setBounds(-250, 0, 1520, 460);
+        javax.swing.GroupLayout FundoPainelLayout = new javax.swing.GroupLayout(FundoPainel);
+        FundoPainel.setLayout(FundoPainelLayout);
+        FundoPainelLayout.setHorizontalGroup(
+            FundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 850, Short.MAX_VALUE)
+        );
+        FundoPainelLayout.setVerticalGroup(
+            FundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(FundoPainel);
+        FundoPainel.setBounds(0, 0, 850, 460);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);
@@ -92,6 +108,11 @@ public class Principal extends javax.swing.JFrame {
         Professor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ProfessorMouseClicked(evt);
+            }
+        });
+        Professor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfessorActionPerformed(evt);
             }
         });
         jMenuBar2.add(Professor);
@@ -154,9 +175,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
         );
 
         pack();
@@ -176,9 +195,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_SobreMouseClicked
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        Professor professor = new Professor();
-        professor.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
@@ -203,6 +220,12 @@ public class Principal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_SairMouseClicked
 
+    private void ProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfessorActionPerformed
+        EscProf escolha = new EscProf();
+        FundoPainel.add(escolha);
+        escolha.setVisible(true);
+    }//GEN-LAST:event_ProfessorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,14 +243,22 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PrincipalAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -240,7 +271,7 @@ public class Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new PrincipalAdmin().setVisible(true);
             }
         });
     }
@@ -248,7 +279,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Assunto;
     private javax.swing.JMenu Disciplina;
-    private javax.swing.JLabel Fundo;
+    private javax.swing.JDesktopPane FundoPainel;
     private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;

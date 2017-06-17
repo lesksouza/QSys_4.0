@@ -39,32 +39,7 @@ public class Professor extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        txtCodigoProfessor = new javax.swing.JLabel();
-        CodigoProfessor = new javax.swing.JTextField();
-        botaoProcurar = new javax.swing.JButton();
-        Nome = new javax.swing.JTextField();
-        txtNome = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JLabel();
-        Login = new javax.swing.JTextField();
-        Senha = new javax.swing.JPasswordField();
-        txtSenha = new javax.swing.JLabel();
-        txtContato = new javax.swing.JLabel();
-        botaoLimpar = new javax.swing.JButton();
-        botaoCancelar = new javax.swing.JButton();
-        botaoExcluir = new javax.swing.JButton();
-        botaoConsultar = new javax.swing.JButton();
-        botaoCadastrar = new javax.swing.JButton();
-        botaoAtualizar = new javax.swing.JButton();
-        txtSexo = new javax.swing.JLabel();
-        txtDisciplina = new javax.swing.JLabel();
-        Contato = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JLabel();
-        Email = new javax.swing.JTextField();
-        Disciplina1 = new javax.swing.JTextField();
-        Disciplina2 = new javax.swing.JTextField();
-        Sexo = new javax.swing.JTextField();
-        Fundo = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         Professor = new javax.swing.JMenu();
         Assunto = new javax.swing.JMenu();
@@ -86,145 +61,8 @@ public class Professor extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 339));
         jPanel1.setLayout(null);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
-
-        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCodigoProfessor.setText("Código do professor");
-        jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(570, 20, 109, 15);
-        jPanel2.add(CodigoProfessor);
-        CodigoProfessor.setBounds(690, 10, 60, 30);
-
-        botaoProcurar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoProcurar.setText("Procurar");
-        jPanel2.add(botaoProcurar);
-        botaoProcurar.setBounds(760, 10, 90, 30);
-        jPanel2.add(Nome);
-        Nome.setBounds(690, 50, 161, 30);
-
-        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNome.setText("Nome");
-        jPanel2.add(txtNome);
-        txtNome.setBounds(570, 60, 32, 15);
-
-        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtLogin.setText("Login");
-        jPanel2.add(txtLogin);
-        txtLogin.setBounds(570, 140, 29, 15);
-        jPanel2.add(Login);
-        Login.setBounds(690, 130, 161, 30);
-        jPanel2.add(Senha);
-        Senha.setBounds(690, 170, 161, 30);
-
-        txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtSenha.setText("Senha");
-        jPanel2.add(txtSenha);
-        txtSenha.setBounds(570, 180, 34, 15);
-
-        txtContato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtContato.setText("Contato");
-        jPanel2.add(txtContato);
-        txtContato.setBounds(570, 300, 50, 15);
-
-        botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoLimpar.setText("Limpar");
-        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLimparActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(760, 380, 90, 30);
-
-        botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoCancelar.setText("Cancelar");
-        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCancelarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(760, 420, 90, 30);
-
-        botaoExcluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoExcluir.setText("Excluir");
-        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoExcluirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoExcluir);
-        botaoExcluir.setBounds(660, 420, 90, 30);
-
-        botaoConsultar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoConsultar.setText("Consultar");
-        botaoConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoConsultarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoConsultar);
-        botaoConsultar.setBounds(660, 380, 90, 30);
-
-        botaoCadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoCadastrar.setText("Cadastrar");
-        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoCadastrar);
-        botaoCadastrar.setBounds(560, 380, 90, 30);
-
-        botaoAtualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoAtualizar.setText("Atualizar");
-        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAtualizarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoAtualizar);
-        botaoAtualizar.setBounds(560, 420, 90, 30);
-
-        txtSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtSexo.setText("Sexo");
-        jPanel2.add(txtSexo);
-        txtSexo.setBounds(570, 100, 27, 15);
-
-        txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtDisciplina.setText("Disciplina");
-        jPanel2.add(txtDisciplina);
-        txtDisciplina.setBounds(570, 220, 47, 20);
-        jPanel2.add(Contato);
-        Contato.setBounds(690, 290, 160, 30);
-
-        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtEmail.setText("Email");
-        jPanel2.add(txtEmail);
-        txtEmail.setBounds(570, 340, 27, 15);
-        jPanel2.add(Email);
-        Email.setBounds(690, 330, 160, 30);
-        jPanel2.add(Disciplina1);
-        Disciplina1.setBounds(690, 210, 160, 30);
-        jPanel2.add(Disciplina2);
-        Disciplina2.setBounds(690, 250, 160, 30);
-
-        Sexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SexoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Sexo);
-        Sexo.setBounds(690, 90, 160, 30);
-
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo.jpg"))); // NOI18N
-        jPanel2.add(Fundo);
-        Fundo.setBounds(0, 0, 860, 460);
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 860, 460);
+        jPanel1.add(jTabbedPane1);
+        jTabbedPane1.setBounds(0, 0, 860, 460);
 
         Professor.setText("Professor");
         Professor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -292,18 +130,16 @@ public class Professor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
-        Assunto assunto = new Assunto();
-        assunto.setVisible(true);
+    private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
-    }//GEN-LAST:event_AssuntoMouseClicked
+    }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
         Sobre sobre = new Sobre();
@@ -311,15 +147,11 @@ public class Professor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_SobreMouseClicked
 
-    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
-    }//GEN-LAST:event_ProfessorMouseClicked
-
-    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
-        Disciplina disciplina = new Disciplina();
-        disciplina.setVisible(true);
+    private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
+        Prova prova = new Prova();
+        prova.setVisible(true);
         dispose();
-    }//GEN-LAST:event_DisciplinaMouseClicked
+    }//GEN-LAST:event_ProvaMouseClicked
 
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
         Questão questão = new Questão();
@@ -327,114 +159,21 @@ public class Professor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_QuestãoMouseClicked
 
-    private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
-        Prova prova = new Prova();
-        prova.setVisible(true);
+    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
+        Disciplina disciplina = new Disciplina();
+        disciplina.setVisible(true);
         dispose();
-    }//GEN-LAST:event_ProvaMouseClicked
+    }//GEN-LAST:event_DisciplinaMouseClicked
 
-    private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
+    private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
+        Assunto assunto = new Assunto();
+        assunto.setVisible(true);
         dispose();
-    }//GEN-LAST:event_SairMouseClicked
+    }//GEN-LAST:event_AssuntoMouseClicked
 
-    private void SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SexoActionPerformed
-
-    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
-        if(Nome.equals("") || Login.equals("") || Senha.equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
-        }else{
-            Connection con = Conexao.AbrirConexao();
-            ProfessorDAO sql = new ProfessorDAO(con);
-            Professor p = new Professor();
-
-            p.setCodigo(CodigoProfessor);
-            p.setNome(Nome);
-            p.setLogin(Login);
-            p.setSenha(Senha);
-
-            //sql.Alterar_Professor(p);
-            Conexao.FecharConexao(con);
-
-            CodigoProfessor.setText("");
-            Nome.setText("");
-            Login.setText("");
-            Senha.setText("");
-
-        }
-    }//GEN-LAST:event_botaoAtualizarActionPerformed
-
-    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        String codigo = CodigoProfessor.getText();
-        String nome = Nome.getText();
-        String login = Login.getText();
-        String senha = Senha.getText();
-        String sexo = Sexo.getText();
-        String disciplina1 = Disciplina1.getText();
-        String disciplina2 = Disciplina2.getText();
-        String contato = Contato.getText();
-        String email = Email.getText();
-
-        if(nome.equals("") || login.equals("") || senha.equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.", "QSys", JOptionPane.WARNING_MESSAGE);
-        }else{
-            Connection con = Conexao.AbrirConexao();
-            ProfessorDAO sql = new ProfessorDAO(con);
-            Professor p = new Professor();
-
-            p.setNome(Nome);
-            p.setLogin(Login);
-            p.setSenha(Senha);
-            p.setSexo(Sexo);
-            p.setDisciplina1(Disciplina1);
-            p.setDisciplina2(Disciplina2);
-            p.setContato(Contato);
-            p.setEmail(Email);
-
-            sql.Inserir_Professor(p);
-            Conexao.FecharConexao(con);
-
-            Nome.setText("");
-            Login.setText("");
-            Senha.setText("");
-            Sexo.setText("");
-            Disciplina1.setText("");
-            Disciplina2.setText("");
-            Contato.setText("");
-            Email.setText("");
-
-            JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.","QSys", JOptionPane.INFORMATION_MESSAGE );
-            dispose();
-        }
-    }//GEN-LAST:event_botaoCadastrarActionPerformed
-
-    private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
-        if(Nome.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o campo ''Código do professor'' com seu respectivo código para consultá-lo.");
-        }
-    }//GEN-LAST:event_botaoConsultarActionPerformed
-
-    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoExcluirActionPerformed
-
-    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        Principal principal = new Principal();
-        principal.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_botaoCancelarActionPerformed
-
-    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        CodigoProfessor.setText("");
-        Nome.setText("");
-        Login.setText("");
-        Senha.setText("");
-        Disciplina1.setText("");
-        Disciplina2.setText("");
-        Contato.setText("");
-        Email.setText("");
-    }//GEN-LAST:event_botaoLimparActionPerformed
+    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
+        JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
+    }//GEN-LAST:event_ProfessorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -476,43 +215,18 @@ public class Professor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Assunto;
-    private javax.swing.JTextField CodigoProfessor;
-    private javax.swing.JTextField Contato;
     private javax.swing.JMenu Disciplina;
-    private javax.swing.JTextField Disciplina1;
-    private javax.swing.JTextField Disciplina2;
-    private javax.swing.JTextField Email;
-    private javax.swing.JLabel Fundo;
-    private javax.swing.JTextField Login;
-    private javax.swing.JTextField Nome;
     private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;
     private javax.swing.JMenu Sair;
-    private javax.swing.JPasswordField Senha;
-    private javax.swing.JTextField Sexo;
     private javax.swing.JMenu Sobre;
-    private javax.swing.JButton botaoAtualizar;
-    private javax.swing.JButton botaoCadastrar;
-    private javax.swing.JButton botaoCancelar;
-    private javax.swing.JButton botaoConsultar;
-    private javax.swing.JButton botaoExcluir;
-    private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoProcurar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel txtCodigoProfessor;
-    private javax.swing.JLabel txtContato;
-    private javax.swing.JLabel txtDisciplina;
-    private javax.swing.JLabel txtEmail;
-    private javax.swing.JLabel txtLogin;
-    private javax.swing.JLabel txtNome;
-    private javax.swing.JLabel txtSenha;
-    private javax.swing.JLabel txtSexo;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 
     private void setNome(JTextField Nome) {

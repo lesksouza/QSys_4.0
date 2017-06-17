@@ -42,7 +42,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtCodigoProfessor = new javax.swing.JLabel();
         CodigoProfessor = new javax.swing.JTextField();
-        botaoProcurar = new javax.swing.JButton();
         Nome = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
         txtLogin = new javax.swing.JLabel();
@@ -92,12 +91,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         jPanel2.add(txtCodigoProfessor);
         txtCodigoProfessor.setBounds(550, 50, 109, 15);
         jPanel2.add(CodigoProfessor);
-        CodigoProfessor.setBounds(670, 40, 60, 30);
-
-        botaoProcurar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoProcurar.setText("Procurar");
-        jPanel2.add(botaoProcurar);
-        botaoProcurar.setBounds(740, 40, 90, 30);
+        CodigoProfessor.setBounds(670, 40, 160, 30);
         jPanel2.add(Nome);
         Nome.setBounds(670, 80, 161, 30);
 
@@ -432,7 +426,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoProcurar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

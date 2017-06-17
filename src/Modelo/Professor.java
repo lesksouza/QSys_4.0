@@ -20,14 +20,6 @@ public class Professor {
     private String Disciplina2;
     private String Contato;
     private String Email;
-    private int Licenciatura;
-    private int Bacharelado;
-    private int Especializacao;
-    private int Mestrado;
-    private int Doutorado;
-    private int Posdoutorado;
-    private String Curriculo;
-    private int Diretordeturma;
 
     /**
      * @return the Codigo
@@ -154,118 +146,7 @@ public class Professor {
     public void setEmail(String Email) {
         this.Email = Email;
     }
-
-    /**
-     * @return the Licenciatura
-     */
-    public int getLicenciatura() {
-        return Licenciatura;
-    }
-
-    /**
-     * @param Licenciatura the Licenciatura to set
-     */
-    public void setLicenciatura(int Licenciatura) {
-        this.Licenciatura = Licenciatura;
-    }
-
-    /**
-     * @return the Bacharelado
-     */
-    public int getBacharelado() {
-        return Bacharelado;
-    }
-
-    /**
-     * @param Bacharelado the Bacharelado to set
-     */
-    public void setBacharelado(int Bacharelado) {
-        this.Bacharelado = Bacharelado;
-    }
-
-    /**
-     * @return the Especializacao
-     */
-    public int getEspecializacao() {
-        return Especializacao;
-    }
-
-    /**
-     * @param Especializacao the Especializacao to set
-     */
-    public void setEspecializacao(int Especializacao) {
-        this.Especializacao = Especializacao;
-    }
-
-    /**
-     * @return the Mestrado
-     */
-    public int getMestrado() {
-        return Mestrado;
-    }
-
-    /**
-     * @param Mestrado the Mestrado to set
-     */
-    public void setMestrado(int Mestrado) {
-        this.Mestrado = Mestrado;
-    }
-
-    /**
-     * @return the Doutorado
-     */
-    public int getDoutorado() {
-        return Doutorado;
-    }
-
-    /**
-     * @param Doutorado the Doutorado to set
-     */
-    public void setDoutorado(int Doutorado) {
-        this.Doutorado = Doutorado;
-    }
-
-    /**
-     * @return the Posdoutorado
-     */
-    public int getPosdoutorado() {
-        return Posdoutorado;
-    }
-
-    /**
-     * @param Posdoutorado the Posdoutorado to set
-     */
-    public void setPosdoutorado(int Posdoutorado) {
-        this.Posdoutorado = Posdoutorado;
-    }
-
-    /**
-     * @return the Curriculo
-     */
-    public String getCurriculo() {
-        return Curriculo;
-    }
-
-    /**
-     * @param Curriculo the Curriculo to set
-     */
-    public void setCurriculo(String Curriculo) {
-        this.Curriculo = Curriculo;
-    }
-
-    /**
-     * @return the Diretordeturma
-     */
-    public int getDiretordeturma() {
-        return Diretordeturma;
-    }
-
-    /**
-     * @param Diretordeturma the Diretordeturma to set
-     */
-    public void setDiretordeturma(int Diretordeturma) {
-        this.Diretordeturma = Diretordeturma;
-    }
+    
 }
 
     

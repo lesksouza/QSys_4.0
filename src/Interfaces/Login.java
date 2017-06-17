@@ -32,9 +32,9 @@ public class Login extends javax.swing.JFrame {
         botaoEntrar = new javax.swing.JButton();
         imagemUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
-        Usuario = new javax.swing.JTextField();
+        campoUsuario = new javax.swing.JTextField();
         txtSenha = new javax.swing.JLabel();
-        Senha = new javax.swing.JPasswordField();
+        campoSenha = new javax.swing.JPasswordField();
         botaoSair = new javax.swing.JButton();
         BarradeProgresso = new javax.swing.JProgressBar();
         Fundo = new javax.swing.JLabel();
@@ -64,16 +64,16 @@ public class Login extends javax.swing.JFrame {
         txtUsuario.setText("Usuário");
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(220, 180, 60, 30);
-        getContentPane().add(Usuario);
-        Usuario.setBounds(280, 180, 150, 30);
+        getContentPane().add(campoUsuario);
+        campoUsuario.setBounds(280, 180, 150, 30);
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(255, 255, 255));
         txtSenha.setText("Senha");
         getContentPane().add(txtSenha);
         txtSenha.setBounds(220, 220, 50, 30);
-        getContentPane().add(Senha);
-        Senha.setBounds(280, 220, 150, 30);
+        getContentPane().add(campoSenha);
+        campoSenha.setBounds(280, 220, 150, 30);
 
         botaoSair.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoSair.setText("Sair");
@@ -102,13 +102,13 @@ public class Login extends javax.swing.JFrame {
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
         Connection con = Conexao.AbrirConexao();
         ProfessorDAO sql = new ProfessorDAO(con);        
-        String login = Usuario.getText();
-        String senha = Senha.getText();
+        String login = campoUsuario.getText();
+        String senha = campoSenha.getText();
         
         if (login.equalsIgnoreCase("") || senha.equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.","QSys", JOptionPane.WARNING_MESSAGE);
-            Usuario.setText("");
-            Senha.setText("");
+            campoUsuario.setText("");
+            campoSenha.setText("");
         }else{
             if (login.equalsIgnoreCase("adm1n") || senha.equalsIgnoreCase("adm1n")){
                 PrincipalAdmin principaladmin = new PrincipalAdmin();
@@ -128,8 +128,8 @@ public class Login extends javax.swing.JFrame {
                 }.start();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "QSys", JOptionPane.ERROR_MESSAGE);
-                Usuario.setText("");
-                Senha.setText("");
+                campoUsuario.setText("");
+                campoSenha.setText("");
             }
         }
     }//GEN-LAST:event_botaoEntrarActionPerformed
@@ -172,10 +172,10 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar BarradeProgresso;
     private javax.swing.JLabel Fundo;
-    private javax.swing.JPasswordField Senha;
-    private javax.swing.JTextField Usuario;
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel imagemUsuario;
     private javax.swing.JLabel txtSenha;
     private javax.swing.JLabel txtUsuario;

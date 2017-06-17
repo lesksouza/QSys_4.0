@@ -279,9 +279,7 @@ public class Prova extends javax.swing.JFrame {
     }//GEN-LAST:event_campoResponsávelActionPerformed
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        Professor professor = new Professor();
-        professor.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked

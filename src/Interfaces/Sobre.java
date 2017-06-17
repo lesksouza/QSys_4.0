@@ -194,9 +194,7 @@ public class Sobre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        Principal principal = new Principal();
-        principal.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
@@ -204,9 +202,7 @@ public class Sobre extends javax.swing.JFrame {
     }//GEN-LAST:event_SobreMouseClicked
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        Professor professor = new Professor();
-        professor.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked

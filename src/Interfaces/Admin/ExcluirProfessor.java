@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Interfaces.Admin;
 
+import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import java.sql.Connection;
@@ -17,12 +18,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class Professor extends javax.swing.JFrame {
+public class ExcluirProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Professor() {
+    public ExcluirProfessor() {
         initComponents();
     }
 
@@ -39,13 +40,17 @@ public class Professor extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        txtCodigoProfessor = new javax.swing.JLabel();
+        CodigoProfessor = new javax.swing.JTextField();
+        campoNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JLabel();
+        botaoLimpar = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        botaoAlterar = new javax.swing.JButton();
+        botaoPesquisar = new javax.swing.JButton();
+        Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
-        Professor = new javax.swing.JMenu();
-        Assunto = new javax.swing.JMenu();
-        Disciplina = new javax.swing.JMenu();
-        Questão = new javax.swing.JMenu();
-        Prova = new javax.swing.JMenu();
         Sobre = new javax.swing.JMenu();
         Sair = new javax.swing.JMenu();
 
@@ -56,53 +61,69 @@ public class Professor extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Professor");
+        setTitle("Professor [Domínio do Administrador]");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(460, 339));
         jPanel1.setLayout(null);
-        jPanel1.add(jTabbedPane1);
-        jTabbedPane1.setBounds(0, 0, 860, 460);
 
-        Professor.setText("Professor");
-        Professor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProfessorMouseClicked(evt);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCodigoProfessor.setText("Digite o Código");
+        jPanel2.add(txtCodigoProfessor);
+        txtCodigoProfessor.setBounds(550, 50, 83, 15);
+        jPanel2.add(CodigoProfessor);
+        CodigoProfessor.setBounds(670, 40, 90, 30);
+        jPanel2.add(campoNome);
+        campoNome.setBounds(670, 80, 161, 30);
+
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNome.setText("Nome");
+        jPanel2.add(txtNome);
+        txtNome.setBounds(550, 90, 32, 15);
+
+        botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoLimpar.setText("Limpar");
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparActionPerformed(evt);
             }
         });
-        jMenuBar2.add(Professor);
+        jPanel2.add(botaoLimpar);
+        botaoLimpar.setBounds(650, 120, 80, 30);
 
-        Assunto.setText("Assunto");
-        Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AssuntoMouseClicked(evt);
+        botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
             }
         });
-        jMenuBar2.add(Assunto);
+        jPanel2.add(botaoCancelar);
+        botaoCancelar.setBounds(740, 120, 90, 30);
 
-        Disciplina.setText("Disciplina");
-        Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DisciplinaMouseClicked(evt);
+        botaoAlterar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoAlterar.setText("Alterar");
+        botaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarActionPerformed(evt);
             }
         });
-        jMenuBar2.add(Disciplina);
+        jPanel2.add(botaoAlterar);
+        botaoAlterar.setBounds(550, 120, 90, 30);
 
-        Questão.setText("Questão");
-        Questão.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                QuestãoMouseClicked(evt);
-            }
-        });
-        jMenuBar2.add(Questão);
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        jPanel2.add(botaoPesquisar);
+        botaoPesquisar.setBounds(773, 40, 60, 30);
 
-        Prova.setText("Prova");
-        Prova.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProvaMouseClicked(evt);
-            }
-        });
-        jMenuBar2.add(Prova);
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo.jpg"))); // NOI18N
+        jPanel2.add(Fundo);
+        Fundo.setBounds(0, 0, 860, 460);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 860, 460);
 
         Sobre.setText("Sobre");
         Sobre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,12 +151,27 @@ public class Professor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
+        
+    }//GEN-LAST:event_botaoAlterarActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        PrincipalAdmin principaladmin = new PrincipalAdmin();
+        principaladmin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        CodigoProfessor.setText("");
+        campoNome.setText("");
+    }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
@@ -146,34 +182,6 @@ public class Professor extends javax.swing.JFrame {
         sobre.setVisible(true);
         dispose();
     }//GEN-LAST:event_SobreMouseClicked
-
-    private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
-        Prova prova = new Prova();
-        prova.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_ProvaMouseClicked
-
-    private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
-        Questão questão = new Questão();
-        questão.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_QuestãoMouseClicked
-
-    private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
-        Disciplina disciplina = new Disciplina();
-        disciplina.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_DisciplinaMouseClicked
-
-    private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
-        Assunto assunto = new Assunto();
-        assunto.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_AssuntoMouseClicked
-
-    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
-        JOptionPane.showMessageDialog(null, "Você já está nessa janela.");
-    }//GEN-LAST:event_ProfessorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,14 +200,74 @@ public class Professor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -208,25 +276,29 @@ public class Professor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Professor().setVisible(true);
+                new ExcluirProfessor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Assunto;
-    private javax.swing.JMenu Disciplina;
-    private javax.swing.JMenu Professor;
-    private javax.swing.JMenu Prova;
-    private javax.swing.JMenu Questão;
+    private javax.swing.JTextField CodigoProfessor;
+    private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
+    private javax.swing.JButton botaoAlterar;
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoPesquisar;
+    private javax.swing.JTextField campoNome;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel txtCodigoProfessor;
+    private javax.swing.JLabel txtNome;
     // End of variables declaration//GEN-END:variables
 
     private void setNome(JTextField Nome) {

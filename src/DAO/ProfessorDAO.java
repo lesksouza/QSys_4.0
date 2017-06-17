@@ -270,13 +270,7 @@ public class ProfessorDAO extends ExecuteSQL {
         }
     
     }
-
     
-
-    public void Inserir_Professor(Interfaces.Professor p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public void Alterar_Professor(JMenu Professor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

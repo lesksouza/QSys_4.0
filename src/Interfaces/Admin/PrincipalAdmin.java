@@ -7,7 +7,6 @@ package Interfaces.Admin;
 
 import Interfaces.Assunto;
 import Interfaces.Disciplina;
-import Interfaces.Professor;
 import Interfaces.Prova;
 import Interfaces.Questão;
 import Interfaces.Sobre;

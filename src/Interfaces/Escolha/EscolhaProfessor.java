@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaces.Escolha;
-import Interfaces.Escolha.CadastrarProfessor;
+import Interfaces.DomAdmin.ConsultarProfessor;
+import Interfaces.DomAdmin.CadastrarProfessor;
 
 /**
  *

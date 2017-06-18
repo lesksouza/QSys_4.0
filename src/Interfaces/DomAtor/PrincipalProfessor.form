@@ -36,6 +36,7 @@
         <Menu class="javax.swing.JMenu" name="Assunto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Assunto"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AssuntoMouseClicked"/>

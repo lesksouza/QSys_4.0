@@ -106,6 +106,7 @@ public class PrincipalProfessor extends javax.swing.JFrame {
         jMenuBar2.add(Professor);
 
         Assunto.setText("Assunto");
+        Assunto.setEnabled(false);
         Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AssuntoMouseClicked(evt);
@@ -173,9 +174,7 @@ public class PrincipalProfessor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
-        Assunto assunto = new Assunto();
-        assunto.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Janela restrita ao administrador.");
     }//GEN-LAST:event_AssuntoMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked

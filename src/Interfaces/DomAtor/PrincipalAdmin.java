@@ -116,6 +116,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jMenuBar2.add(Assunto);
 
         Disciplina.setText("Disciplina");
+        Disciplina.setEnabled(false);
         Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DisciplinaMouseClicked(evt);
@@ -124,6 +125,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jMenuBar2.add(Disciplina);
 
         Questão.setText("Questão");
+        Questão.setEnabled(false);
         Questão.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 QuestãoMouseClicked(evt);
@@ -132,6 +134,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jMenuBar2.add(Questão);
 
         Prova.setText("Prova");
+        Prova.setEnabled(false);
         Prova.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ProvaMouseClicked(evt);
@@ -191,21 +194,15 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
-        Disciplina disciplina = new Disciplina();
-        disciplina.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Esta janela diz respeito somente ao professor.");
     }//GEN-LAST:event_DisciplinaMouseClicked
 
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
-        Questão questão = new Questão();
-        questão.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Esta janela diz respeito somente ao professor.");
     }//GEN-LAST:event_QuestãoMouseClicked
 
     private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
-        Prova prova = new Prova();
-        prova.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Esta janela diz respeito somente ao professor.");
     }//GEN-LAST:event_ProvaMouseClicked
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked

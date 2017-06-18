@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.DomProf;
+package Interfaces.DomAdmin;
 
-import Interfaces.DomAdmin.*;
 import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
-import Interfaces.DomAtor.PrincipalProfessor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -21,12 +19,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class ExcluirAssunto extends javax.swing.JFrame {
+public class ExcluirDisciplina extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public ExcluirAssunto() {
+    public ExcluirDisciplina() {
         initComponents();
     }
 
@@ -45,7 +43,7 @@ public class ExcluirAssunto extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtCodigoProfessor = new javax.swing.JLabel();
-        campoCodigoAssunto = new javax.swing.JTextField();
+        CodigoProfessor = new javax.swing.JTextField();
         campoNome = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
         botaoLimpar = new javax.swing.JButton();
@@ -78,8 +76,8 @@ public class ExcluirAssunto extends javax.swing.JFrame {
         txtCodigoProfessor.setText("Digite o Código");
         jPanel2.add(txtCodigoProfessor);
         txtCodigoProfessor.setBounds(40, 50, 83, 15);
-        jPanel2.add(campoCodigoAssunto);
-        campoCodigoAssunto.setBounds(160, 40, 90, 30);
+        jPanel2.add(CodigoProfessor);
+        CodigoProfessor.setBounds(160, 40, 90, 30);
         jPanel2.add(campoNome);
         campoNome.setBounds(160, 80, 161, 30);
 
@@ -168,13 +166,13 @@ public class ExcluirAssunto extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        PrincipalProfessor principalprofessor = new PrincipalProfessor();
-        principalprofessor.setVisible(true);
+        PrincipalAdmin principaladmin = new PrincipalAdmin();
+        principaladmin.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        campoCodigoAssunto.setText("");
+        CodigoProfessor.setText("");
         campoNome.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
@@ -183,7 +181,7 @@ public class ExcluirAssunto extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar assuntos em um banco de dados.\nPara realizar essa função, selecione o assunto que deseja apagar através\nde seu código, verifique se selecionou o assunto correto através do nome\nque surgirá e clique no botão Excluir. Selecione o assunto com cuidado.\nUma vez excluído, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga o assunto do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar professores em um banco de dados.\nPara realizar essa função, selecione o professor que deseja apagar através\nde seu código, verifique se selecionou o professor correto através do nome\nque surgirá e clique no botão Excluir. Selecione o professor com cuidado.\nUma vez excluído, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga o professor do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
 
     /**
@@ -203,13 +201,13 @@ public class ExcluirAssunto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExcluirAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExcluirAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExcluirAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExcluirAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -343,12 +341,13 @@ public class ExcluirAssunto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExcluirAssunto().setVisible(true);
+                new ExcluirDisciplina().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CodigoProfessor;
     private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
@@ -356,7 +355,6 @@ public class ExcluirAssunto extends javax.swing.JFrame {
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoPesquisar;
-    private javax.swing.JTextField campoCodigoAssunto;
     private javax.swing.JTextField campoNome;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

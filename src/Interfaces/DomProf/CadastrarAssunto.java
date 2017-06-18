@@ -183,7 +183,7 @@ public class CadastrarAssunto extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela tem como função salvar professores em um banco de dados.\nPara realizar essa função, preencha todos os campos, que até então\nestão vazios, com seus respectivos dados.\n\nBOTÕES:\n1 - Cadastrar: salva o professor.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função salvar assuntos em um banco de dados.\nPara realizar essa função, preencha todos os campos, que até então\nestão vazios, com seus respectivos dados.\n\nBOTÕES:\n1 - Cadastrar: salva o assunto.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed

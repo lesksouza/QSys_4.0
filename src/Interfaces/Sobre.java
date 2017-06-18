@@ -206,9 +206,7 @@ public class Sobre extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
-        Assunto assunto = new Assunto();
-        assunto.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_AssuntoMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked

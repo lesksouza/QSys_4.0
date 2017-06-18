@@ -6,7 +6,6 @@
 package Interfaces.DomAtor;
 
 import Interfaces.Escolha.EscolhaProfessor;
-import Interfaces.Assunto;
 import Interfaces.Disciplina;
 import Interfaces.Prova;
 import Interfaces.Questão;

@@ -9,6 +9,7 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.DomAtor.PrincipalProfessor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -190,6 +191,8 @@ public class CadastrarAssunto extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        PrincipalProfessor principalprofessor = new PrincipalProfessor();
+        principalprofessor.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 

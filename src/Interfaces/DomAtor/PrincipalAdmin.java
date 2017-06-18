@@ -108,6 +108,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jMenuBar2.add(Professor);
 
         Assunto.setText("Assunto");
+        Assunto.setEnabled(false);
         Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AssuntoMouseClicked(evt);
@@ -116,7 +117,6 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jMenuBar2.add(Assunto);
 
         Disciplina.setText("Disciplina");
-        Disciplina.setEnabled(false);
         Disciplina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DisciplinaMouseClicked(evt);
@@ -176,9 +176,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssuntoMouseClicked
-        Assunto assunto = new Assunto();
-        assunto.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Esta janela diz respeito somente ao professor.");
     }//GEN-LAST:event_AssuntoMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
@@ -194,7 +192,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfessorMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela diz respeito somente ao professor.");
+        
     }//GEN-LAST:event_DisciplinaMouseClicked
 
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked

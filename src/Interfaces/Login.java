@@ -7,7 +7,7 @@ package Interfaces;
 
 import DAO.Conexao;
 import DAO.ProfessorDAO;
-import Interfaces.Admin.PrincipalAdmin;
+import Interfaces.DomAtor.PrincipalAdmin;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 /**

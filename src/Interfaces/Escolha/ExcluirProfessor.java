@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.Admin;
+package Interfaces.Escolha;
 
 import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
+import Interfaces.DomAtor.PrincipalAdmin;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -18,12 +19,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class CadastrarProfessor extends javax.swing.JFrame {
+public class ExcluirProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public CadastrarProfessor() {
+    public ExcluirProfessor() {
         initComponents();
     }
 
@@ -41,24 +42,14 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        txtCodigoProfessor = new javax.swing.JLabel();
+        CodigoProfessor = new javax.swing.JTextField();
         campoNome = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JLabel();
-        campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JPasswordField();
-        txtSenha = new javax.swing.JLabel();
-        txtContato = new javax.swing.JLabel();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        botaoCadastrar = new javax.swing.JButton();
-        txtSexo = new javax.swing.JLabel();
-        txtDisciplina = new javax.swing.JLabel();
-        campoContato = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JLabel();
-        campoEmail = new javax.swing.JTextField();
-        campoDisciplina1 = new javax.swing.JTextField();
-        campoDisciplina2 = new javax.swing.JTextField();
-        campoSexo = new javax.swing.JTextField();
+        botaoExcluir = new javax.swing.JButton();
+        botaoPesquisar = new javax.swing.JButton();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Sobre = new javax.swing.JMenu();
@@ -79,32 +70,22 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
+
+        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCodigoProfessor.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigoProfessor.setText("Digite o Código");
+        jPanel2.add(txtCodigoProfessor);
+        txtCodigoProfessor.setBounds(40, 50, 83, 15);
+        jPanel2.add(CodigoProfessor);
+        CodigoProfessor.setBounds(160, 40, 90, 30);
         jPanel2.add(campoNome);
-        campoNome.setBounds(670, 20, 161, 30);
+        campoNome.setBounds(160, 80, 161, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setText("Nome");
         jPanel2.add(txtNome);
-        txtNome.setBounds(550, 30, 32, 15);
-
-        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtLogin.setText("Login");
-        jPanel2.add(txtLogin);
-        txtLogin.setBounds(550, 110, 29, 15);
-        jPanel2.add(campoLogin);
-        campoLogin.setBounds(670, 100, 161, 30);
-        jPanel2.add(campoSenha);
-        campoSenha.setBounds(670, 140, 161, 30);
-
-        txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtSenha.setText("Senha");
-        jPanel2.add(txtSenha);
-        txtSenha.setBounds(550, 150, 34, 15);
-
-        txtContato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtContato.setText("Contato");
-        jPanel2.add(txtContato);
-        txtContato.setBounds(550, 270, 50, 15);
+        txtNome.setBounds(40, 90, 32, 15);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -114,7 +95,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(650, 340, 80, 30);
+        botaoLimpar.setBounds(140, 120, 80, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -124,52 +105,25 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(740, 340, 90, 30);
+        botaoCancelar.setBounds(230, 120, 90, 30);
 
-        botaoCadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoCadastrar.setText("Cadastrar");
-        botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        botaoExcluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarActionPerformed(evt);
+                botaoExcluirActionPerformed(evt);
             }
         });
-        jPanel2.add(botaoCadastrar);
-        botaoCadastrar.setBounds(550, 340, 90, 30);
+        jPanel2.add(botaoExcluir);
+        botaoExcluir.setBounds(40, 120, 90, 30);
 
-        txtSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtSexo.setText("Sexo");
-        jPanel2.add(txtSexo);
-        txtSexo.setBounds(550, 70, 27, 15);
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        jPanel2.add(botaoPesquisar);
+        botaoPesquisar.setBounds(260, 40, 60, 30);
 
-        txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtDisciplina.setText("Disciplina");
-        jPanel2.add(txtDisciplina);
-        txtDisciplina.setBounds(550, 190, 47, 20);
-        jPanel2.add(campoContato);
-        campoContato.setBounds(670, 260, 160, 30);
-
-        txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtEmail.setText("Email");
-        jPanel2.add(txtEmail);
-        txtEmail.setBounds(550, 310, 27, 15);
-        jPanel2.add(campoEmail);
-        campoEmail.setBounds(670, 300, 160, 30);
-        jPanel2.add(campoDisciplina1);
-        campoDisciplina1.setBounds(670, 180, 160, 30);
-        jPanel2.add(campoDisciplina2);
-        campoDisciplina2.setBounds(670, 220, 160, 30);
-
-        campoSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoSexoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(campoSexo);
-        campoSexo.setBounds(670, 60, 160, 30);
-
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo.jpg"))); // NOI18N
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
-        Fundo.setBounds(0, 0, 860, 460);
+        Fundo.setBounds(-80, 0, 1110, 460);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);
@@ -207,13 +161,9 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoSexoActionPerformed
-
-    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         
-    }//GEN-LAST:event_botaoCadastrarActionPerformed
+    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         PrincipalAdmin principaladmin = new PrincipalAdmin();
@@ -222,13 +172,8 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        CodigoProfessor.setText("");
         campoNome.setText("");
-        campoLogin.setText("");
-        campoSenha.setText("");
-        campoDisciplina1.setText("");
-        campoDisciplina2.setText("");
-        campoContato.setText("");
-        campoEmail.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
@@ -236,9 +181,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        Sobre sobre = new Sobre();
-        sobre.setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar professores em um banco de dados.\nPara realizar essa função, selecione o professor que deseja apagar através\nde seu código, verifique se selecionou o professor correto através do nome\nque surgirá e clique no botão Excluir. Selecione o professor com cuidado.\nUma vez excluído, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga o professor do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
 
     /**
@@ -258,14 +201,62 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -286,39 +277,65 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrarProfessor().setVisible(true);
+                new ExcluirProfessor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CodigoProfessor;
     private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
-    private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
-    private javax.swing.JTextField campoContato;
-    private javax.swing.JTextField campoDisciplina1;
-    private javax.swing.JTextField campoDisciplina2;
-    private javax.swing.JTextField campoEmail;
-    private javax.swing.JTextField campoLogin;
+    private javax.swing.JButton botaoPesquisar;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JPasswordField campoSenha;
-    private javax.swing.JTextField campoSexo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel txtContato;
-    private javax.swing.JLabel txtDisciplina;
-    private javax.swing.JLabel txtEmail;
-    private javax.swing.JLabel txtLogin;
+    private javax.swing.JLabel txtCodigoProfessor;
     private javax.swing.JLabel txtNome;
-    private javax.swing.JLabel txtSenha;
-    private javax.swing.JLabel txtSexo;
     // End of variables declaration//GEN-END:variables
+
+    private void setNome(JTextField Nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setLogin(JTextField Login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSenha(JPasswordField Senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setSexo(JTextField Sexo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDisciplina1(JTextField Disciplina1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDisciplina2(JTextField Disciplina2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setContato(JTextField Contato) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setEmail(JTextField Email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setCodigo(JTextField CodigoProfessor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

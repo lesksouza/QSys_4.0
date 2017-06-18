@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.Admin;
+package Interfaces.DomAtor;
 
+import Interfaces.Escolha.EscolhaProfessor;
 import Interfaces.Assunto;
 import Interfaces.Disciplina;
 import Interfaces.Prova;
@@ -86,9 +87,9 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jPanel2.add(letrinhasMiudas);
         letrinhasMiudas.setBounds(20, 80, 190, 14);
 
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Terra.jpg"))); // NOI18N
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Gravity.jpg"))); // NOI18N
         jPanel2.add(Fundo);
-        Fundo.setBounds(-340, 0, 1270, 470);
+        Fundo.setBounds(-80, 0, 1270, 470);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);

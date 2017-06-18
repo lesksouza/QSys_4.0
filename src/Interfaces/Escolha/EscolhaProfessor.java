@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.Admin;
-import Interfaces.Admin.*;
-import Interfaces.Admin.CadastrarProfessor;
+package Interfaces.Escolha;
+import Interfaces.Escolha.CadastrarProfessor;
 
 /**
  *
  * @author pc
  */
-public class EscolhaAssunto extends javax.swing.JFrame {
+public class EscolhaProfessor extends javax.swing.JFrame {
 
     /**
      * Creates new form EscolhaProfessor
      */
-    public EscolhaAssunto() {
+    public EscolhaProfessor() {
         initComponents();
     }
 
@@ -29,40 +28,45 @@ public class EscolhaAssunto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botaoCadAss = new javax.swing.JButton();
-        botaoConAss = new javax.swing.JButton();
-        botaoAltAss = new javax.swing.JButton();
-        botaoExcAss = new javax.swing.JButton();
+        botaoCadProf = new javax.swing.JButton();
+        botaoConProf = new javax.swing.JButton();
+        botaoAltProf = new javax.swing.JButton();
+        botaoExcProf = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        botaoCadAss.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoCadAss.setText("Cadastrar Assunto");
-        botaoCadAss.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoCadProf.setText("Cadastrar Professor");
+        botaoCadProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadAssActionPerformed(evt);
+                botaoCadProfActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoCadAss);
-        botaoCadAss.setBounds(60, 40, 180, 34);
+        getContentPane().add(botaoCadProf);
+        botaoCadProf.setBounds(60, 40, 180, 34);
 
-        botaoConAss.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoConAss.setText("Consultar Assunto");
-        getContentPane().add(botaoConAss);
-        botaoConAss.setBounds(60, 80, 180, 34);
+        botaoConProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoConProf.setText("Consultar Professor");
+        botaoConProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConProfActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botaoConProf);
+        botaoConProf.setBounds(60, 80, 180, 34);
 
-        botaoAltAss.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoAltAss.setText("Alterar Assunto");
-        getContentPane().add(botaoAltAss);
-        botaoAltAss.setBounds(60, 120, 180, 34);
+        botaoAltProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoAltProf.setText("Alterar Professor");
+        getContentPane().add(botaoAltProf);
+        botaoAltProf.setBounds(60, 120, 180, 34);
 
-        botaoExcAss.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoExcAss.setText("Excluir Assunto");
-        getContentPane().add(botaoExcAss);
-        botaoExcAss.setBounds(60, 160, 180, 34);
+        botaoExcProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoExcProf.setText("Excluir Professor");
+        getContentPane().add(botaoExcProf);
+        botaoExcProf.setBounds(60, 160, 180, 34);
 
         Cancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Cancelar.setText("Cancelar");
@@ -82,15 +86,21 @@ public class EscolhaAssunto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCadAssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadAssActionPerformed
+    private void botaoCadProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadProfActionPerformed
         CadastrarProfessor cadastrarprofessor = new CadastrarProfessor();
         cadastrarprofessor.setVisible(true);
         dispose();
-    }//GEN-LAST:event_botaoCadAssActionPerformed
+    }//GEN-LAST:event_botaoCadProfActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         dispose();
     }//GEN-LAST:event_CancelarActionPerformed
+
+    private void botaoConProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConProfActionPerformed
+        ConsultarProfessor consultarprofessor = new ConsultarProfessor();
+        consultarprofessor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoConProfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,21 +119,20 @@ public class EscolhaAssunto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EscolhaAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EscolhaAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EscolhaAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EscolhaAssunto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EscolhaAssunto().setVisible(true);
+                new EscolhaProfessor().setVisible(true);
             }
         });
     }
@@ -131,9 +140,9 @@ public class EscolhaAssunto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Fundo;
-    private javax.swing.JButton botaoAltAss;
-    private javax.swing.JButton botaoCadAss;
-    private javax.swing.JButton botaoConAss;
-    private javax.swing.JButton botaoExcAss;
+    private javax.swing.JButton botaoAltProf;
+    private javax.swing.JButton botaoCadProf;
+    private javax.swing.JButton botaoConProf;
+    private javax.swing.JButton botaoExcProf;
     // End of variables declaration//GEN-END:variables
 }

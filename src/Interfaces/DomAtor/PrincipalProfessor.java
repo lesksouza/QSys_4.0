@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.Prof;
+package Interfaces.DomAtor;
 
 import Interfaces.*;
+import Interfaces.Escolha.EscolhaProfessor;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +41,7 @@ public class PrincipalProfessor extends javax.swing.JFrame {
         letrinhasMiudas = new javax.swing.JLabel();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
+        Professor = new javax.swing.JMenu();
         Assunto = new javax.swing.JMenu();
         Disciplina = new javax.swing.JMenu();
         Questão = new javax.swing.JMenu();
@@ -81,12 +83,27 @@ public class PrincipalProfessor extends javax.swing.JFrame {
         jPanel2.add(letrinhasMiudas);
         letrinhasMiudas.setBounds(20, 80, 190, 14);
 
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Terra.jpg"))); // NOI18N
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Abstract.jpg"))); // NOI18N
         jPanel2.add(Fundo);
-        Fundo.setBounds(-250, 0, 1520, 460);
+        Fundo.setBounds(-20, 0, 1680, 460);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 860, 460);
+
+        Professor.setText("Professor");
+        Professor.setToolTipText("");
+        Professor.setEnabled(false);
+        Professor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProfessorMouseClicked(evt);
+            }
+        });
+        Professor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfessorActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(Professor);
 
         Assunto.setText("Assunto");
         Assunto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,6 +206,14 @@ public class PrincipalProfessor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_SairMouseClicked
 
+    private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked
+        JOptionPane.showMessageDialog(null, "Janela restrita ao administrador.");
+    }//GEN-LAST:event_ProfessorMouseClicked
+
+    private void ProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfessorActionPerformed
+
+    }//GEN-LAST:event_ProfessorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,6 +268,7 @@ public class PrincipalProfessor extends javax.swing.JFrame {
     private javax.swing.JMenu Assunto;
     private javax.swing.JMenu Disciplina;
     private javax.swing.JLabel Fundo;
+    private javax.swing.JMenu Professor;
     private javax.swing.JMenu Prova;
     private javax.swing.JMenu Questão;
     private javax.swing.JMenu Sair;

@@ -9,11 +9,14 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import java.awt.List;
 import java.sql.Connection;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,8 +29,39 @@ public class ConsultarProfessor extends javax.swing.JFrame {
      */
     public ConsultarProfessor() {
         initComponents();
+        
+        setTitle("Consultar Funcionário");
+        setSize(800, 450);
+        AtualizaTable();
     }
 
+    public void AtualizaTable(){
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO bd = new ProfessorDAO(con);
+        
+        List<Professor> lista = new ArrayList<Professor>();
+        lista = bd.Listar_Professor();
+        
+        DefaultTableModel tbm = (DefaultTableModel) Tabela.getModel();
+        /*
+        while(tbm.getRowCount() > 0){
+            tbm.removeRow(0);
+        }*/
+        for(int i = tbm.getRowCount() - 1; i >= 0; i--){
+            tbm.removeRow(i);
+        }
+        int i = 0;
+                
+        for(Professor tab : lista){
+            tbm.addRow(new String[1]);
+            Tabela.setValueAt(tab.getCod(),i,0);
+            Tabela.setValueAt(tab.getNome(), i, 1);
+            Tabela.setValueAt(tab.getLogin(), i, 2);
+            Tabela.setValueAt(tab.getSenha(), i, 3);
+            i++;
+        }
+        Conexao.FecharConexao(con);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +89,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
         botaoPesPNome = new javax.swing.JButton();
         botaoPesqPCod = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabela = new javax.swing.JTable();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Sobre = new javax.swing.JMenu();
@@ -122,6 +156,11 @@ public class ConsultarProfessor extends javax.swing.JFrame {
         PesqDisciProf.setBounds(570, 40, 130, 30);
 
         PesqTodos.setText("TODOS");
+        PesqTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesqTodosActionPerformed(evt);
+            }
+        });
         jPanel2.add(PesqTodos);
         PesqTodos.setBounds(770, 40, 70, 30);
 
@@ -137,7 +176,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
         jPanel2.add(botaoPesqPCod);
         botaoPesqPCod.setBounds(430, 40, 50, 30);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -156,7 +195,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabela);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(20, 90, 820, 110);
@@ -220,6 +259,10 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
         JOptionPane.showMessageDialog(null, "Esta janela tem como função visualizar professores em um banco de dados.\nPara realizar essa função, preencha um dos campos (filtro) superiores, que até então\nestão vazios, com sua respectiva informação e clique no botão ao lado (com ícone de lupa).\n\nBOTÕES:\n1 - Limpar: limpa todos os campos.\n2 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void PesqTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesqTodosActionPerformed
+        AtualizaTable();
+    }//GEN-LAST:event_PesqTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +338,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     private javax.swing.JButton PesqTodos;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoPesPNome;
@@ -307,7 +351,6 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel txtCodigoProfessor;
     private javax.swing.JLabel txtDisciplina;
     private javax.swing.JLabel txtNome;

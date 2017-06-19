@@ -9,6 +9,8 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.Escolha.EscolhaProfessor;
+import Modelo.Professor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -220,7 +222,49 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_campoSexoActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
+        String Nome = campoNome.getText();
+        String Sexo = campoSexo.getText();
+        String Login = campoLogin.getText();
+        String Senha = campoSenha.getText();
+        String Disciplina1 = campoDisciplina1.getText();
+        String Disciplina2 = campoDisciplina2.getText();
+        String Contato = campoContato.getText();
+        String Email = campoEmail.getText();
         
+        if(Nome.equals("") || Sexo.equals("") || Login.equals("") || Senha.equals("") || Disciplina1.equals("") || Disciplina2.equals("") || Contato.equals("") || Email.equals("")){
+            JOptionPane.showMessageDialog(null, "Todos os dados obrigatórios devem ser preenchidos", "Administrador", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Connection con = Conexao.AbrirConexao();
+            ProfessorDAO sql = new ProfessorDAO(con);
+            Professor p = new Professor();
+            
+            p.setNome(Nome);
+            p.setSexo(Sexo);
+            p.setLogin(Login);
+            p.setSenha(Senha);
+            p.setDisciplina1(Disciplina1);
+            p.setDisciplina2(Disciplina2);
+            p.setContato(Contato);
+            p.setEmail(Email);
+            
+            sql.Inserir_Professor(p);
+            Conexao.FecharConexao(con);
+            
+            campoNome.setText("");
+            campoSexo.setText("");
+            campoLogin.setText("");
+            campoSenha.setText("");
+            campoDisciplina1.setText("");
+            campoDisciplina2.setText("");
+            campoContato.setText("");
+            campoEmail.setText("");
+            
+            JOptionPane.showMessageDialog(null, "Professor salvo com sucesso.","Administrador", JOptionPane.INFORMATION_MESSAGE );
+            
+            EscolhaProfessor escolhaprofessor = new EscolhaProfessor();
+            escolhaprofessor.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed

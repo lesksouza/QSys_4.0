@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package Interfaces.Escolha;
+import Interfaces.DomAtor.PrincipalAdmin;
 import Interfaces.DomAdmin.ConsultarProfessor;
 import Interfaces.DomAdmin.CadastrarProfessor;
+import Interfaces.DomAdmin.ExcluirProfessor;
 
 /**
  *
@@ -66,6 +68,11 @@ public class EscolhaProfessor extends javax.swing.JFrame {
 
         botaoExcProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoExcProf.setText("Excluir Professor");
+        botaoExcProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcProfActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoExcProf);
         botaoExcProf.setBounds(60, 160, 180, 34);
 
@@ -94,6 +101,8 @@ public class EscolhaProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadProfActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        PrincipalAdmin principaladmin = new PrincipalAdmin();
+        principaladmin.setVisible(true);
         dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
@@ -102,6 +111,12 @@ public class EscolhaProfessor extends javax.swing.JFrame {
         consultarprofessor.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoConProfActionPerformed
+
+    private void botaoExcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcProfActionPerformed
+        ExcluirProfessor excluirprofessor = new ExcluirProfessor();
+        excluirprofessor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoExcProfActionPerformed
 
     /**
      * @param args the command line arguments

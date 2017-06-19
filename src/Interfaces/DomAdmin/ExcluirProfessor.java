@@ -9,7 +9,11 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.Escolha.EscolhaProfessor;
+import Modelo.Professor;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -43,13 +47,13 @@ public class ExcluirProfessor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtCodigoProfessor = new javax.swing.JLabel();
-        CodigoProfessor = new javax.swing.JTextField();
-        campoNome = new javax.swing.JTextField();
+        campoCodigo = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
         botaoPesquisar = new javax.swing.JButton();
+        caixaNome = new javax.swing.JComboBox();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Sobre = new javax.swing.JMenu();
@@ -76,10 +80,8 @@ public class ExcluirProfessor extends javax.swing.JFrame {
         txtCodigoProfessor.setText("Digite o Código");
         jPanel2.add(txtCodigoProfessor);
         txtCodigoProfessor.setBounds(40, 50, 83, 15);
-        jPanel2.add(CodigoProfessor);
-        CodigoProfessor.setBounds(160, 40, 90, 30);
-        jPanel2.add(campoNome);
-        campoNome.setBounds(160, 80, 161, 30);
+        jPanel2.add(campoCodigo);
+        campoCodigo.setBounds(160, 40, 90, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,6 +122,15 @@ public class ExcluirProfessor extends javax.swing.JFrame {
         botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
         jPanel2.add(botaoPesquisar);
         botaoPesquisar.setBounds(260, 40, 60, 30);
+
+        caixaNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        caixaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaNomeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(caixaNome);
+        caixaNome.setBounds(160, 80, 160, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -162,18 +173,36 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+        String Codigo = campoCodigo.getText();
         
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO sql = new ProfessorDAO(con);
+        Professor p = new Professor();
+        
+        int confirma = JOptionPane.showConfirmDialog(null, "Realmente deseja excluir o professor"
+        + "\n (" + Codigo + ")", "Administrador",
+        JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(confirma == 0){
+            int cod = Integer.parseInt(Codigo);
+            p.setCodigo(cod);
+            sql.Excluir_Professor(p);
+            Conexao.FecharConexao(con);
+            
+        }
+        EscolhaProfessor escolhaprofessor = new EscolhaProfessor();
+        escolhaprofessor.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        PrincipalAdmin principaladmin = new PrincipalAdmin();
-        principaladmin.setVisible(true);
+        EscolhaProfessor escolhaprofessor = new EscolhaProfessor();
+        escolhaprofessor.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        CodigoProfessor.setText("");
-        campoNome.setText("");
+        campoCodigo.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
@@ -183,6 +212,21 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
         JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar professores em um banco de dados.\nPara realizar essa função, selecione o professor que deseja apagar através\nde seu código, verifique se selecionou o professor correto através do nome\nque surgirá e clique no botão Excluir. Selecione o professor com cuidado.\nUma vez excluído, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga o professor do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void caixaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaNomeActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO sql = new ProfessorDAO(con);
+        List<Professor> lista = new ArrayList<Professor>();
+        String Nome = caixaNome.getSelectedItem().toString();
+        
+        lista = sql.Pesquisar_Nome_Professor(Nome);
+        
+        for(Professor p : lista){
+            int a = p.getCodigo();
+            campoCodigo.setText("" + a);
+        }
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_caixaNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,7 +327,6 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CodigoProfessor;
     private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
@@ -291,7 +334,8 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoPesquisar;
-    private javax.swing.JTextField campoNome;
+    private javax.swing.JComboBox caixaNome;
+    private javax.swing.JTextField campoCodigo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -302,40 +346,5 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel txtNome;
     // End of variables declaration//GEN-END:variables
 
-    private void setNome(JTextField Nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setLogin(JTextField Login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSenha(JPasswordField Senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSexo(JTextField Sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina1(JTextField Disciplina1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina2(JTextField Disciplina2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setContato(JTextField Contato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEmail(JTextField Email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCodigo(JTextField CodigoProfessor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+  
 }

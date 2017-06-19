@@ -27,7 +27,7 @@ public class ProfessorDAO extends ExecuteSQL {
        
         boolean finalResult = false;
         try {
-            String consulta = "select login, senha from professores WHERE login = '" + Login + "' and senha = '" + Senha + "'";
+            String consulta = "select login, senha from professor WHERE login = '" + Login + "' and senha = '" + Senha + "'";
             PreparedStatement ps = getCon().prepareStatement(consulta);
             ResultSet rs = ps.executeQuery();
             
@@ -46,7 +46,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public String Inserir_Professor(Professor p){
-        String sql = "INSERT INTO professores VALUES (0,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO professor VALUES (0,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
@@ -70,7 +70,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Listar_Professor(){
-        String sql = "SELECT codigo,nome,sexo,login,snha,disciplina1,disciplina2,contato,email FROM professores";
+        String sql = "SELECT codigo,nome,sexo,login,snha,disciplina1,disciplina2,contato,email FROM professor";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -103,7 +103,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Pesquisar_Nome_Professor(String Nome){
-        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professores WHERE nome LIKE '" + Nome + "%'";
+        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professor WHERE nome LIKE '" + Nome + "%'";
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -135,7 +135,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> Pesquisar_Codigo_Professor(int Codigo){
-        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professores WHERE codigo = '" + Codigo + "'" ;
+        String sql = "SELECT codigo,nome,sexo,login,senha,disciplina1,disciplina2,contato,email FROM professor WHERE codigo = '" + Codigo + "'" ;
         List<Professor> lista = new ArrayList<Professor>();
         
         try {
@@ -174,7 +174,7 @@ public class ProfessorDAO extends ExecuteSQL {
          
         try {
             
-            String sql = "SELECT * FROM professores WHERE codigo =  " + Codigo + "";
+            String sql = "SELECT * FROM professor WHERE codigo =  " + Codigo + "";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
            
@@ -208,7 +208,7 @@ public class ProfessorDAO extends ExecuteSQL {
     
     
     public void Alterar_Professor(Professor p){
-        String sql = "UPDATE professores SET codigo = ?, nome = ?, login = ?, senha = ?, disciplina1 = ?, disciplina2 = ?, contato = ?, email = ? WHERE codigo = ?";
+        String sql = "UPDATE professor SET codigo = ?, nome = ?, login = ?, senha = ?, disciplina1 = ?, disciplina2 = ?, contato = ?, email = ? WHERE codigo = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(1, p.getCodigo());
@@ -232,7 +232,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public List<Professor> ListaComboProfessor(){
-        String sql = "SELECT nome FROM professores ORDER BY nome";
+        String sql = "SELECT nome FROM professor ORDER BY nome";
         List<Professor> lista = new ArrayList<Professor>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -254,7 +254,7 @@ public class ProfessorDAO extends ExecuteSQL {
     }
     
     public String Excluir_Professor(Professor p){
-        String sql = "DELETE FROM professores WHERE codigo = ?";
+        String sql = "DELETE FROM professor WHERE codigo = ?";
     
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);

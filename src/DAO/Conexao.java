@@ -21,7 +21,7 @@ public class Conexao {
             con = DriverManager.getConnection(url,"root", "");
                    
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","Professor", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","Administrador/Professor", JOptionPane.ERROR_MESSAGE );
         }
         return con;
     }

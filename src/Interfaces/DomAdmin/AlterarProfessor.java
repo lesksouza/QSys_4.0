@@ -9,6 +9,7 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Modelo.Professor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -62,7 +63,9 @@ public class AlterarProfessor extends javax.swing.JFrame {
         campoDisciplina1 = new javax.swing.JTextField();
         campoDisciplina2 = new javax.swing.JTextField();
         botaoPesquisar = new javax.swing.JButton();
-        caixaSexo = new javax.swing.JComboBox();
+        campoSexo = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JLabel();
+        campoCodigo = new javax.swing.JTextField();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Sobre = new javax.swing.JMenu();
@@ -88,39 +91,39 @@ public class AlterarProfessor extends javax.swing.JFrame {
         txtCodigoProfessor.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigoProfessor.setText("Digite o Código");
         jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(40, 40, 83, 15);
+        txtCodigoProfessor.setBounds(40, 30, 83, 15);
         jPanel2.add(CodigoProfessor);
-        CodigoProfessor.setBounds(160, 30, 90, 30);
+        CodigoProfessor.setBounds(160, 20, 90, 30);
         jPanel2.add(campoNome);
-        campoNome.setBounds(160, 70, 161, 30);
+        campoNome.setBounds(160, 100, 161, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setText("Nome");
         jPanel2.add(txtNome);
-        txtNome.setBounds(40, 80, 32, 15);
+        txtNome.setBounds(40, 110, 32, 15);
 
         txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtLogin.setForeground(new java.awt.Color(255, 255, 255));
         txtLogin.setText("Login");
         jPanel2.add(txtLogin);
-        txtLogin.setBounds(40, 160, 29, 15);
+        txtLogin.setBounds(40, 190, 29, 15);
         jPanel2.add(campoLogin);
-        campoLogin.setBounds(160, 150, 161, 30);
+        campoLogin.setBounds(160, 180, 161, 30);
         jPanel2.add(campoSenha);
-        campoSenha.setBounds(160, 190, 161, 30);
+        campoSenha.setBounds(160, 220, 161, 30);
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(255, 255, 255));
         txtSenha.setText("Senha");
         jPanel2.add(txtSenha);
-        txtSenha.setBounds(40, 200, 34, 15);
+        txtSenha.setBounds(40, 230, 34, 15);
 
         txtContato.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtContato.setForeground(new java.awt.Color(255, 255, 255));
         txtContato.setText("Contato");
         jPanel2.add(txtContato);
-        txtContato.setBounds(40, 320, 50, 15);
+        txtContato.setBounds(40, 350, 50, 15);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -130,7 +133,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(140, 390, 80, 30);
+        botaoLimpar.setBounds(140, 420, 80, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -140,7 +143,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(230, 390, 90, 30);
+        botaoCancelar.setBounds(230, 420, 90, 30);
 
         botaoAlterar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoAlterar.setText("Alterar");
@@ -150,42 +153,54 @@ public class AlterarProfessor extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoAlterar);
-        botaoAlterar.setBounds(40, 390, 90, 30);
+        botaoAlterar.setBounds(40, 420, 90, 30);
 
         txtSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtSexo.setForeground(new java.awt.Color(255, 255, 255));
         txtSexo.setText("Sexo");
         jPanel2.add(txtSexo);
-        txtSexo.setBounds(40, 120, 27, 15);
+        txtSexo.setBounds(40, 150, 27, 15);
 
         txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtDisciplina.setForeground(new java.awt.Color(255, 255, 255));
         txtDisciplina.setText("Disciplina");
         jPanel2.add(txtDisciplina);
-        txtDisciplina.setBounds(40, 240, 47, 20);
+        txtDisciplina.setBounds(40, 270, 47, 20);
         jPanel2.add(campoContato);
-        campoContato.setBounds(160, 310, 160, 30);
+        campoContato.setBounds(160, 340, 160, 30);
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setText("Email");
         jPanel2.add(txtEmail);
-        txtEmail.setBounds(40, 360, 27, 15);
+        txtEmail.setBounds(40, 390, 27, 15);
         jPanel2.add(campoEmail);
-        campoEmail.setBounds(160, 350, 160, 30);
+        campoEmail.setBounds(160, 380, 160, 30);
         jPanel2.add(campoDisciplina1);
-        campoDisciplina1.setBounds(160, 230, 160, 30);
+        campoDisciplina1.setBounds(160, 260, 160, 30);
         jPanel2.add(campoDisciplina2);
-        campoDisciplina2.setBounds(160, 270, 160, 30);
+        campoDisciplina2.setBounds(160, 300, 160, 30);
 
         botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        botaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoPesquisar);
-        botaoPesquisar.setBounds(260, 30, 60, 30);
+        botaoPesquisar.setBounds(260, 20, 60, 30);
 
-        caixaSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        caixaSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
-        jPanel2.add(caixaSexo);
-        caixaSexo.setBounds(160, 110, 160, 30);
+        campoSexo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel2.add(campoSexo);
+        campoSexo.setBounds(160, 140, 160, 30);
+
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigo.setText("Codigo");
+        jPanel2.add(txtCodigo);
+        txtCodigo.setBounds(40, 70, 50, 15);
+        jPanel2.add(campoCodigo);
+        campoCodigo.setBounds(160, 60, 161, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -228,7 +243,48 @@ public class AlterarProfessor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
+        String Codigo = campoCodigo.getText();
+        String Nome = campoNome.getText();
+        String Sexo = campoSexo.getText();
+        String Login = campoLogin.getText();
+        String Senha = campoSenha.getText();
+        String Disciplina1 = campoDisciplina1.getText();
+        String Disciplina2 = campoDisciplina2.getText();
+        String Contato = campoContato.getText();
+        String Email = campoEmail.getText();
         
+        if(Codigo.equals("") || Sexo.equals("") || Login.equals("") || Senha.equals("") || Disciplina1.equals("") || Disciplina2.equals("") || Contato.equals("") || Email.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!",
+                    "QSys", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Connection con = Conexao.AbrirConexao();
+            ProfessorDAO sql = new ProfessorDAO(con);
+            int cod = Integer.parseInt(Codigo);
+            Professor p = new Professor();
+            
+            p.setCodigo(cod);
+            p.setNome(Nome);
+            p.setSexo(Sexo);
+            p.setLogin(Login);
+            p.setSenha(Senha);
+            p.setDisciplina1(Disciplina1);
+            p.setDisciplina2(Disciplina2);
+            p.setContato(Contato);
+            p.setEmail(Email);
+            
+            sql.Alterar_Professor(p);
+            Conexao.FecharConexao(con);
+            
+            campoCodigo.setText("");
+            campoNome.setText("");
+            campoSexo.setText("");
+            campoLogin.setText("");
+            campoSenha.setText("");
+            campoDisciplina1.setText("");
+            campoDisciplina2.setText("");
+            campoContato.setText("");
+            campoEmail.setText("");
+        }
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
@@ -239,6 +295,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
         CodigoProfessor.setText("");
+        campoCodigo.setText("");
         campoNome.setText("");
         campoLogin.setText("");
         campoSenha.setText("");
@@ -255,6 +312,48 @@ public class AlterarProfessor extends javax.swing.JFrame {
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
         JOptionPane.showMessageDialog(null, "Esta janela tem como função atualizar professores em um banco de dados.\nPara realizar essa função, selecione o professor que deseja atualizar através\nde seu código, preencha os campos que deseja alterar, que até então estão\nvazios, com suas respectivas novas informações e clique no botão Alterar.\n\nBOTÕES:\n1 - Alterar: muda todos os campos preenchidos pelas novas informações.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
+        String Codigo = CodigoProfessor.getText();
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO sql = new ProfessorDAO(con);
+        
+        int cod = Integer.parseInt(Codigo);
+        
+        Professor p = sql.Consulta_Professor(cod);
+        if( p.getCodigo() != cod){
+            Conexao.FecharConexao(con);
+        }
+        if(Codigo.equals("")){
+            JOptionPane.showMessageDialog(null, "Digite um código para atualizar",
+                    "QSys", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        campoCodigo.setText("");
+        campoNome.setText("");
+        campoSexo.setText("");
+        campoLogin.setText("");
+        campoSenha.setText("");
+        campoDisciplina1.setText("");
+        campoDisciplina2.setText("");
+        campoContato.setText("");
+        campoEmail.setText("");
+        
+        //InserirDados(cod);
+        CodigoProfessor.setText("");
+            
+        campoCodigo.setText("" + p.getCodigo());
+        campoNome.setText(p.getNome());
+        campoSexo.setText(p.getSexo());
+        campoLogin.setText(p.getLogin());
+        campoSenha.setText(p.getSenha());
+        campoDisciplina1.setText(p.getDisciplina1());
+        campoDisciplina2.setText(p.getDisciplina2());
+        campoContato.setText(p.getContato());
+        campoEmail.setText(p.getEmail());
+        
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +430,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoPesquisar;
-    private javax.swing.JComboBox caixaSexo;
+    private javax.swing.JTextField campoCodigo;
     private javax.swing.JTextField campoContato;
     private javax.swing.JTextField campoDisciplina1;
     private javax.swing.JTextField campoDisciplina2;
@@ -339,12 +438,14 @@ public class AlterarProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField campoLogin;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JTextField campoSexo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel txtCodigo;
     private javax.swing.JLabel txtCodigoProfessor;
     private javax.swing.JLabel txtContato;
     private javax.swing.JLabel txtDisciplina;
@@ -354,41 +455,5 @@ public class AlterarProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel txtSenha;
     private javax.swing.JLabel txtSexo;
     // End of variables declaration//GEN-END:variables
-
-    private void setNome(JTextField Nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setLogin(JTextField Login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSenha(JPasswordField Senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSexo(JTextField Sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina1(JTextField Disciplina1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina2(JTextField Disciplina2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setContato(JTextField Contato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEmail(JTextField Email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCodigo(JTextField CodigoProfessor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

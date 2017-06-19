@@ -9,6 +9,7 @@ import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Modelo.Professor;
 import java.awt.List;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     public ConsultarProfessor() {
         initComponents();
         
-        setTitle("Consultar Funcionário");
+        setTitle("Consultar Professor");
         setSize(800, 450);
         AtualizaTable();
     }
@@ -39,7 +40,7 @@ public class ConsultarProfessor extends javax.swing.JFrame {
         Connection con = Conexao.AbrirConexao();
         ProfessorDAO bd = new ProfessorDAO(con);
         
-        List<Professor> lista = new ArrayList<Professor>();
+        java.util.List<Professor> lista = new ArrayList<Professor>();
         lista = bd.Listar_Professor();
         
         DefaultTableModel tbm = (DefaultTableModel) Tabela.getModel();
@@ -54,10 +55,15 @@ public class ConsultarProfessor extends javax.swing.JFrame {
                 
         for(Professor tab : lista){
             tbm.addRow(new String[1]);
-            Tabela.setValueAt(tab.getCod(),i,0);
+            Tabela.setValueAt(tab.getCodigo(),i, 0);
             Tabela.setValueAt(tab.getNome(), i, 1);
-            Tabela.setValueAt(tab.getLogin(), i, 2);
-            Tabela.setValueAt(tab.getSenha(), i, 3);
+            Tabela.setValueAt(tab.getSexo(), i, 2);
+            Tabela.setValueAt(tab.getLogin(), i, 3);
+            Tabela.setValueAt(tab.getSenha(), i, 4);
+            Tabela.setValueAt(tab.getDisciplina1(), i, 5);
+            Tabela.setValueAt(tab.getDisciplina2(), i, 6);
+            Tabela.setValueAt(tab.getContato(), i, 7);
+            Tabela.setValueAt(tab.getEmail(), i, 8);
             i++;
         }
         Conexao.FecharConexao(con);
@@ -165,14 +171,29 @@ public class ConsultarProfessor extends javax.swing.JFrame {
         PesqTodos.setBounds(770, 40, 70, 30);
 
         botaoPesqPDisci.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        botaoPesqPDisci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesqPDisciActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoPesqPDisci);
         botaoPesqPDisci.setBounds(710, 40, 50, 30);
 
         botaoPesPNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        botaoPesPNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesPNomeActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoPesPNome);
         botaoPesPNome.setBounds(200, 40, 50, 30);
 
         botaoPesqPCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        botaoPesqPCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesqPCodActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoPesqPCod);
         botaoPesqPCod.setBounds(430, 40, 50, 30);
 
@@ -263,6 +284,105 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     private void PesqTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesqTodosActionPerformed
         AtualizaTable();
     }//GEN-LAST:event_PesqTodosActionPerformed
+
+    private void botaoPesPNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesPNomeActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO bd = new ProfessorDAO(con);
+        
+        java.util.List<Professor> lista = new ArrayList<Professor>();
+        lista = bd.Pesquisar_Nome_Professor(PesqNomeProf.getText());
+        
+        DefaultTableModel tbm = (DefaultTableModel) Tabela.getModel();
+        /*
+        while(tbm.getRowCount() > 0){
+            tbm.removeRow(0);
+        }*/
+        for(int i = tbm.getRowCount() - 1; i >= 0; i--){
+            tbm.removeRow(i);
+        }
+        int i = 0;
+                
+        for(Professor tab : lista){
+            tbm.addRow(new String[1]);
+            Tabela.setValueAt(tab.getCodigo(),i, 0);
+            Tabela.setValueAt(tab.getNome(), i, 1);
+            Tabela.setValueAt(tab.getSexo(), i, 2);
+            Tabela.setValueAt(tab.getLogin(), i, 3);
+            Tabela.setValueAt(tab.getSenha(), i, 4);
+            Tabela.setValueAt(tab.getDisciplina1(), i, 5);
+            Tabela.setValueAt(tab.getDisciplina2(), i, 6);
+            Tabela.setValueAt(tab.getContato(), i, 7);
+            Tabela.setValueAt(tab.getEmail(), i, 8);
+            i++;
+        }
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_botaoPesPNomeActionPerformed
+
+    private void botaoPesqPCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesqPCodActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO bd = new ProfessorDAO(con);
+        
+        java.util.List<Professor> lista = new ArrayList<Professor>();
+        lista = bd.Pesquisar_Codigo_Professor(Integer.parseInt(PesqCodProf.getText()));
+        
+        DefaultTableModel tbm = (DefaultTableModel) Tabela.getModel();
+        /*
+        while(tbm.getRowCount() > 0){
+            tbm.removeRow(0);
+        }*/
+        for(int i = tbm.getRowCount() - 1; i >= 0; i--){
+            tbm.removeRow(i);
+        }
+        int i = 0;
+                
+        for(Professor tab : lista){
+            tbm.addRow(new String[1]);
+            Tabela.setValueAt(tab.getCodigo(),i, 0);
+            Tabela.setValueAt(tab.getNome(), i, 1);
+            Tabela.setValueAt(tab.getSexo(), i, 2);
+            Tabela.setValueAt(tab.getLogin(), i, 3);
+            Tabela.setValueAt(tab.getSenha(), i, 4);
+            Tabela.setValueAt(tab.getDisciplina1(), i, 5);
+            Tabela.setValueAt(tab.getDisciplina2(), i, 6);
+            Tabela.setValueAt(tab.getContato(), i, 7);
+            Tabela.setValueAt(tab.getEmail(), i, 8);
+            i++;
+        }
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_botaoPesqPCodActionPerformed
+
+    private void botaoPesqPDisciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesqPDisciActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ProfessorDAO bd = new ProfessorDAO(con);
+        
+        java.util.List<Professor> lista = new ArrayList<Professor>();
+        lista = bd.Pesquisar_Codigo_Professor(Integer.parseInt(PesqDisciProf.getText()));
+        
+        DefaultTableModel tbm = (DefaultTableModel) Tabela.getModel();
+        /*
+        while(tbm.getRowCount() > 0){
+            tbm.removeRow(0);
+        }*/
+        for(int i = tbm.getRowCount() - 1; i >= 0; i--){
+            tbm.removeRow(i);
+        }
+        int i = 0;
+                
+        for(Professor tab : lista){
+            tbm.addRow(new String[1]);
+            Tabela.setValueAt(tab.getCodigo(),i, 0);
+            Tabela.setValueAt(tab.getNome(), i, 1);
+            Tabela.setValueAt(tab.getSexo(), i, 2);
+            Tabela.setValueAt(tab.getLogin(), i, 3);
+            Tabela.setValueAt(tab.getSenha(), i, 4);
+            Tabela.setValueAt(tab.getDisciplina1(), i, 5);
+            Tabela.setValueAt(tab.getDisciplina2(), i, 6);
+            Tabela.setValueAt(tab.getContato(), i, 7);
+            Tabela.setValueAt(tab.getEmail(), i, 8);
+            i++;
+        }
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_botaoPesqPDisciActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,41 +475,5 @@ public class ConsultarProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel txtDisciplina;
     private javax.swing.JLabel txtNome;
     // End of variables declaration//GEN-END:variables
-
-    private void setNome(JTextField Nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setLogin(JTextField Login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSenha(JPasswordField Senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSexo(JTextField Sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina1(JTextField Disciplina1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina2(JTextField Disciplina2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setContato(JTextField Contato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEmail(JTextField Email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCodigo(JTextField CodigoProfessor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+       
 }

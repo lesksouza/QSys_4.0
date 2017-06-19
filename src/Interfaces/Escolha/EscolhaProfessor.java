@@ -5,6 +5,7 @@
  */
 package Interfaces.Escolha;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.DomAdmin.AlterarProfessor;
 import Interfaces.DomAdmin.ConsultarProfessor;
 import Interfaces.DomAdmin.CadastrarProfessor;
 import Interfaces.DomAdmin.ExcluirProfessor;
@@ -63,6 +64,11 @@ public class EscolhaProfessor extends javax.swing.JFrame {
 
         botaoAltProf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoAltProf.setText("Alterar Professor");
+        botaoAltProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAltProfActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoAltProf);
         botaoAltProf.setBounds(60, 120, 180, 34);
 
@@ -118,6 +124,12 @@ public class EscolhaProfessor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botaoExcProfActionPerformed
 
+    private void botaoAltProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProfActionPerformed
+        AlterarProfessor alterarprofessor = new AlterarProfessor();
+        alterarprofessor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoAltProfActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -135,20 +147,20 @@ public class EscolhaProfessor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EscolhaProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EscolhaProfessor().setVisible(true);
+                new ConsultarProfessor().setVisible(true);
             }
         });
     }

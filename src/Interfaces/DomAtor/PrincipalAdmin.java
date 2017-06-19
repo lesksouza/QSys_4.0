@@ -6,9 +6,6 @@
 package Interfaces.DomAtor;
 
 import Interfaces.Escolha.EscolhaProfessor;
-import Interfaces.Disciplina;
-import Interfaces.Prova;
-import Interfaces.Questão;
 import Interfaces.Sobre;
 import javax.swing.JOptionPane;
 
@@ -179,9 +176,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_AssuntoMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        Sobre sobre = new Sobre();
-        sobre.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_SobreMouseClicked
 
     private void ProfessorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfessorMouseClicked

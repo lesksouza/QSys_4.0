@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.DomAdmin;
+package Interfaces.DomProf;
 
 import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.DomAtor.PrincipalProfessor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -19,12 +20,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class ExcluirDisciplina extends javax.swing.JFrame {
+public class AlterarProva extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public ExcluirDisciplina() {
+    public AlterarProva() {
         initComponents();
     }
 
@@ -42,13 +43,19 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        txtCodigoProfessor = new javax.swing.JLabel();
-        CodigoDisciplina = new javax.swing.JTextField();
+        txtCodigoProva = new javax.swing.JLabel();
+        campoCodigoProva = new javax.swing.JTextField();
         campoNome = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
+        txtDisciplina = new javax.swing.JLabel();
+        campoDisciplina = new javax.swing.JTextField();
+        caixaÁrea = new javax.swing.JComboBox();
+        txtÁrea = new javax.swing.JLabel();
+        txtGrauEducação = new javax.swing.JLabel();
+        caixaGrauEducação = new javax.swing.JComboBox();
+        botaoAlterar = new javax.swing.JButton();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        botaoExcluir = new javax.swing.JButton();
         botaoPesquisar = new javax.swing.JButton();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -71,21 +78,56 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCodigoProfessor.setForeground(new java.awt.Color(255, 255, 255));
-        txtCodigoProfessor.setText("Digite o Código");
-        jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(40, 50, 83, 15);
-        jPanel2.add(CodigoDisciplina);
-        CodigoDisciplina.setBounds(160, 40, 90, 30);
+        txtCodigoProva.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCodigoProva.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigoProva.setText("Código do assunto");
+        jPanel2.add(txtCodigoProva);
+        txtCodigoProva.setBounds(40, 40, 110, 15);
+        jPanel2.add(campoCodigoProva);
+        campoCodigoProva.setBounds(160, 30, 90, 30);
         jPanel2.add(campoNome);
-        campoNome.setBounds(160, 80, 161, 30);
+        campoNome.setBounds(160, 70, 161, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setText("Nome");
         jPanel2.add(txtNome);
-        txtNome.setBounds(40, 90, 32, 15);
+        txtNome.setBounds(40, 80, 32, 15);
+
+        txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDisciplina.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisciplina.setText("Disciplina");
+        jPanel2.add(txtDisciplina);
+        txtDisciplina.setBounds(40, 120, 50, 15);
+        jPanel2.add(campoDisciplina);
+        campoDisciplina.setBounds(160, 110, 160, 30);
+
+        caixaÁrea.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        caixaÁrea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ciências da Natureza", "Ciências Humanas", "Curso de Agronegócio", "Curso de Eletrotécnica", "Curso de Enfermagem", "Curso de Informática", "Linguagens e Códigos", "Matemática" }));
+        jPanel2.add(caixaÁrea);
+        caixaÁrea.setBounds(160, 150, 161, 30);
+
+        txtÁrea.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtÁrea.setForeground(new java.awt.Color(255, 255, 255));
+        txtÁrea.setText("Área");
+        jPanel2.add(txtÁrea);
+        txtÁrea.setBounds(40, 160, 25, 20);
+
+        txtGrauEducação.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtGrauEducação.setForeground(new java.awt.Color(255, 255, 255));
+        txtGrauEducação.setText("Grau de Educação");
+        jPanel2.add(txtGrauEducação);
+        txtGrauEducação.setBounds(40, 200, 110, 15);
+
+        caixaGrauEducação.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        caixaGrauEducação.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ensino Fundamental", "Ensino Médio", "Ensino Superior" }));
+        jPanel2.add(caixaGrauEducação);
+        caixaGrauEducação.setBounds(160, 190, 160, 30);
+
+        botaoAlterar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoAlterar.setText("Alterar");
+        jPanel2.add(botaoAlterar);
+        botaoAlterar.setBounds(40, 230, 90, 30);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -95,7 +137,7 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(140, 120, 80, 30);
+        botaoLimpar.setBounds(140, 230, 80, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -105,21 +147,11 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(230, 120, 90, 30);
-
-        botaoExcluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botaoExcluir.setText("Excluir");
-        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoExcluirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoExcluir);
-        botaoExcluir.setBounds(40, 120, 90, 30);
+        botaoCancelar.setBounds(230, 230, 90, 30);
 
         botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
         jPanel2.add(botaoPesquisar);
-        botaoPesquisar.setBounds(260, 40, 60, 30);
+        botaoPesquisar.setBounds(260, 30, 60, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -161,28 +193,24 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        
-    }//GEN-LAST:event_botaoExcluirActionPerformed
-
-    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        PrincipalAdmin principaladmin = new PrincipalAdmin();
-        principaladmin.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_botaoCancelarActionPerformed
-
-    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        CodigoDisciplina.setText("");
-        campoNome.setText("");
-    }//GEN-LAST:event_botaoLimparActionPerformed
-
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar disciplinas em um banco de dados.\nPara realizar essa função, selecione a disciplina que deseja apagar através\nde seu código, verifique se selecionou a disciplina correta através do nome\nque surgirá e clique no botão Excluir. Selecione a disciplina com cuidado.\nUma vez excluída, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga a disciplina do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função atualizar assuntos em um banco de dados.\nPara realizar essa função, selecione o assunto que deseja atualizar através\nde seu código, preencha os campos que deseja alterar, que até então estão\nvazios, com suas respectivas novas informações e clique no botão Alterar.\n\nBOTÕES:\n1 - Alterar: muda todos os campos preenchidos pelas novas informações.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        campoCodigoProva.setText("");
+        campoNome.setText("");
+    }//GEN-LAST:event_botaoLimparActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        PrincipalProfessor principalprofessor = new PrincipalProfessor();
+        principalprofessor.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,14 +229,142 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExcluirDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -341,20 +497,23 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExcluirDisciplina().setVisible(true);
+                new AlterarProva().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CodigoDisciplina;
     private javax.swing.JLabel Fundo;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
+    private javax.swing.JButton botaoAlterar;
     private javax.swing.JButton botaoCancelar;
-    private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
     private javax.swing.JButton botaoPesquisar;
+    private javax.swing.JComboBox caixaGrauEducação;
+    private javax.swing.JComboBox caixaÁrea;
+    private javax.swing.JTextField campoCodigoProva;
+    private javax.swing.JTextField campoDisciplina;
     private javax.swing.JTextField campoNome;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -362,8 +521,11 @@ public class ExcluirDisciplina extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel txtCodigoProfessor;
+    private javax.swing.JLabel txtCodigoProva;
+    private javax.swing.JLabel txtDisciplina;
+    private javax.swing.JLabel txtGrauEducação;
     private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txtÁrea;
     // End of variables declaration//GEN-END:variables
 
     private void setNome(JTextField Nome) {

@@ -267,9 +267,7 @@ public class Questão extends javax.swing.JFrame {
     }//GEN-LAST:event_AssuntoMouseClicked
 
     private void DisciplinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisciplinaMouseClicked
-        Disciplina disciplina = new Disciplina();
-        disciplina.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_DisciplinaMouseClicked
 
     private void QuestãoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuestãoMouseClicked
@@ -278,15 +276,11 @@ public class Questão extends javax.swing.JFrame {
     }//GEN-LAST:event_QuestãoMouseClicked
 
     private void ProvaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProvaMouseClicked
-        Prova prova = new Prova();
-        prova.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ProvaMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        Sobre sobre = new Sobre();
-        sobre.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_SobreMouseClicked
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked

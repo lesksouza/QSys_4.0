@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.DomAdmin;
+package Interfaces.DomProf;
 
 import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.DomAtor.PrincipalProfessor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -19,12 +20,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class ConsultarDisciplina extends javax.swing.JFrame {
+public class CadastrarProva extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public ConsultarDisciplina() {
+    public CadastrarProva() {
         initComponents();
     }
 
@@ -42,16 +43,18 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        txtCodigoProfessor = new javax.swing.JLabel();
-        PesqProfProf = new javax.swing.JTextField();
-        PesqCogProf = new javax.swing.JTextField();
-        txtNome = new javax.swing.JLabel();
+        txtDisciplina = new javax.swing.JLabel();
+        caixaGrauEnsino = new javax.swing.JComboBox();
+        txtGrauEnsino = new javax.swing.JLabel();
+        txtResponsável = new javax.swing.JLabel();
+        campoResponsável = new javax.swing.JTextField();
+        botaoCadastrar = new javax.swing.JButton();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        PesqTodas = new javax.swing.JButton();
-        botaoPesPCod = new javax.swing.JButton();
-        botaoPesqPProf = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        caixaDisciplinas = new javax.swing.JComboBox();
+        txtAssunto = new javax.swing.JLabel();
+        caixaAssunto = new javax.swing.JComboBox();
+        relacaoQuestoes = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -74,21 +77,46 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCodigoProfessor.setForeground(new java.awt.Color(255, 255, 255));
-        txtCodigoProfessor.setText("Por Professores");
-        jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(270, 50, 90, 15);
-        jPanel2.add(PesqProfProf);
-        PesqProfProf.setBounds(360, 40, 90, 30);
-        jPanel2.add(PesqCogProf);
-        PesqCogProf.setBounds(90, 40, 110, 30);
+        txtDisciplina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDisciplina.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisciplina.setText("Disciplina");
+        jPanel2.add(txtDisciplina);
+        txtDisciplina.setBounds(40, 40, 47, 20);
 
-        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNome.setForeground(new java.awt.Color(255, 255, 255));
-        txtNome.setText("Por Código");
-        jPanel2.add(txtNome);
-        txtNome.setBounds(20, 50, 110, 15);
+        caixaGrauEnsino.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        caixaGrauEnsino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ensino Fundamental", "Ensino Médio", "Ensino Superior" }));
+        caixaGrauEnsino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaGrauEnsinoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(caixaGrauEnsino);
+        caixaGrauEnsino.setBounds(470, 30, 161, 30);
+
+        txtGrauEnsino.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtGrauEnsino.setForeground(new java.awt.Color(255, 255, 255));
+        txtGrauEnsino.setText("Grau de ensino");
+        jPanel2.add(txtGrauEnsino);
+        txtGrauEnsino.setBounds(350, 30, 90, 30);
+
+        txtResponsável.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtResponsável.setForeground(new java.awt.Color(255, 255, 255));
+        txtResponsável.setText("Responsável");
+        jPanel2.add(txtResponsável);
+        txtResponsável.setBounds(350, 80, 110, 15);
+
+        campoResponsável.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoResponsávelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(campoResponsável);
+        campoResponsável.setBounds(470, 70, 160, 30);
+
+        botaoCadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoCadastrar.setText("Cadastrar");
+        jPanel2.add(botaoCadastrar);
+        botaoCadastrar.setBounds(640, 30, 90, 30);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -98,7 +126,7 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(660, 280, 80, 30);
+        botaoLimpar.setBounds(640, 70, 90, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -108,48 +136,62 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(750, 280, 90, 30);
+        botaoCancelar.setBounds(640, 110, 90, 30);
 
-        PesqTodas.setText("TODAS");
-        jPanel2.add(PesqTodas);
-        PesqTodas.setBounds(770, 40, 70, 30);
+        caixaDisciplinas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel2.add(caixaDisciplinas);
+        caixaDisciplinas.setBounds(160, 30, 170, 30);
 
-        botaoPesPCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
-        jPanel2.add(botaoPesPCod);
-        botaoPesPCod.setBounds(210, 40, 50, 30);
+        txtAssunto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAssunto.setForeground(new java.awt.Color(255, 255, 255));
+        txtAssunto.setText("Assunto");
+        jPanel2.add(txtAssunto);
+        txtAssunto.setBounds(40, 70, 90, 30);
 
-        botaoPesqPProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
-        jPanel2.add(botaoPesqPProf);
-        botaoPesqPProf.setBounds(460, 40, 50, 30);
+        caixaAssunto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        caixaAssunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaAssuntoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(caixaAssunto);
+        caixaAssunto.setBounds(160, 70, 170, 30);
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Área", "Professores", "Carga Horária"
+                "Código", "Disciplina", "Assunto", "Responsável"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        relacaoQuestoes.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 820, 180);
+        jPanel2.add(relacaoQuestoes);
+        relacaoQuestoes.setBounds(40, 110, 590, 270);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -191,24 +233,33 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        PrincipalAdmin principaladmin = new PrincipalAdmin();
-        principaladmin.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_botaoCancelarActionPerformed
-
-    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        PesqProfProf.setText("");
-        PesqCogProf.setText("");
-    }//GEN-LAST:event_botaoLimparActionPerformed
-
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         dispose();
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela tem como função visualizar disciplinas em um banco de dados.\nPara realizar essa função, preencha um dos campos (filtro) superiores, que até então\nestão vazios, com sua respectiva informação e clique no botão ao lado (com ícone de lupa).\n\nBOTÕES:\n1 - Limpar: limpa todos os campos.\n2 - Cancelar: fecha a janela e retorna para a tela principal.");
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função salvar assuntos em um banco de dados.\nPara realizar essa função, preencha todos os campos, que até então\nestão vazios, com seus respectivos dados.\n\nBOTÕES:\n1 - Cadastrar: salva o assunto.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
+
+    private void caixaGrauEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaGrauEnsinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixaGrauEnsinoActionPerformed
+
+    private void campoResponsávelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoResponsávelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoResponsávelActionPerformed
+
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        campoResponsável.setText("");
+    }//GEN-LAST:event_botaoLimparActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void caixaAssuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaAssuntoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixaAssuntoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,13 +278,13 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -303,68 +354,34 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarDisciplina().setVisible(true);
+                new CadastrarProva().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fundo;
-    private javax.swing.JTextField PesqCogProf;
-    private javax.swing.JTextField PesqProfProf;
-    private javax.swing.JButton PesqTodas;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
+    private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoPesPCod;
-    private javax.swing.JButton botaoPesqPProf;
+    private javax.swing.JComboBox caixaAssunto;
+    private javax.swing.JComboBox caixaDisciplinas;
+    private javax.swing.JComboBox caixaGrauEnsino;
+    private javax.swing.JTextField campoResponsável;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel txtCodigoProfessor;
-    private javax.swing.JLabel txtNome;
+    private javax.swing.JScrollPane relacaoQuestoes;
+    private javax.swing.JLabel txtAssunto;
+    private javax.swing.JLabel txtDisciplina;
+    private javax.swing.JLabel txtGrauEnsino;
+    private javax.swing.JLabel txtResponsável;
     // End of variables declaration//GEN-END:variables
-
-    private void setNome(JTextField Nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setLogin(JTextField Login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSenha(JPasswordField Senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSexo(JTextField Sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina1(JTextField Disciplina1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setDisciplina2(JTextField Disciplina2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setContato(JTextField Contato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEmail(JTextField Email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCodigo(JTextField CodigoProfessor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

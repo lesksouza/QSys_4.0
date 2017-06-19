@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces.DomAdmin;
+package Interfaces.DomProf;
 
+import Interfaces.DomAdmin.*;
 import Interfaces.*;
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Interfaces.DomAtor.PrincipalAdmin;
+import Interfaces.DomAtor.PrincipalProfessor;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -19,12 +21,12 @@ import javax.swing.JTextPane;
  *
  * @author XPerience
  */
-public class ConsultarDisciplina extends javax.swing.JFrame {
+public class ExcluirQuestao extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public ConsultarDisciplina() {
+    public ExcluirQuestao() {
         initComponents();
     }
 
@@ -43,16 +45,13 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtCodigoProfessor = new javax.swing.JLabel();
-        PesqProfProf = new javax.swing.JTextField();
-        PesqCogProf = new javax.swing.JTextField();
+        campoCodigoAssunto = new javax.swing.JTextField();
+        campoNome = new javax.swing.JTextField();
         txtNome = new javax.swing.JLabel();
         botaoLimpar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        PesqTodas = new javax.swing.JButton();
-        botaoPesPCod = new javax.swing.JButton();
-        botaoPesqPProf = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        botaoExcluir = new javax.swing.JButton();
+        botaoPesquisar = new javax.swing.JButton();
         Fundo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         Sobre = new javax.swing.JMenu();
@@ -76,19 +75,19 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
 
         txtCodigoProfessor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtCodigoProfessor.setForeground(new java.awt.Color(255, 255, 255));
-        txtCodigoProfessor.setText("Por Professores");
+        txtCodigoProfessor.setText("Digite o Código");
         jPanel2.add(txtCodigoProfessor);
-        txtCodigoProfessor.setBounds(270, 50, 90, 15);
-        jPanel2.add(PesqProfProf);
-        PesqProfProf.setBounds(360, 40, 90, 30);
-        jPanel2.add(PesqCogProf);
-        PesqCogProf.setBounds(90, 40, 110, 30);
+        txtCodigoProfessor.setBounds(40, 50, 83, 15);
+        jPanel2.add(campoCodigoAssunto);
+        campoCodigoAssunto.setBounds(160, 40, 90, 30);
+        jPanel2.add(campoNome);
+        campoNome.setBounds(160, 80, 161, 30);
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
-        txtNome.setText("Por Código");
+        txtNome.setText("Nome");
         jPanel2.add(txtNome);
-        txtNome.setBounds(20, 50, 110, 15);
+        txtNome.setBounds(40, 90, 32, 15);
 
         botaoLimpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoLimpar.setText("Limpar");
@@ -98,7 +97,7 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoLimpar);
-        botaoLimpar.setBounds(660, 280, 80, 30);
+        botaoLimpar.setBounds(140, 120, 80, 30);
 
         botaoCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -108,48 +107,21 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
             }
         });
         jPanel2.add(botaoCancelar);
-        botaoCancelar.setBounds(750, 280, 90, 30);
+        botaoCancelar.setBounds(230, 120, 90, 30);
 
-        PesqTodas.setText("TODAS");
-        jPanel2.add(PesqTodas);
-        PesqTodas.setBounds(770, 40, 70, 30);
-
-        botaoPesPCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
-        jPanel2.add(botaoPesPCod);
-        botaoPesPCod.setBounds(210, 40, 50, 30);
-
-        botaoPesqPProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
-        jPanel2.add(botaoPesqPProf);
-        botaoPesqPProf.setBounds(460, 40, 50, 30);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Código", "Nome", "Área", "Professores", "Carga Horária"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        botaoExcluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jPanel2.add(botaoExcluir);
+        botaoExcluir.setBounds(40, 120, 90, 30);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 820, 180);
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cons.png"))); // NOI18N
+        jPanel2.add(botaoPesquisar);
+        botaoPesquisar.setBounds(260, 40, 60, 30);
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Snow.jpg"))); // NOI18N
         jPanel2.add(Fundo);
@@ -191,15 +163,19 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+        
+    }//GEN-LAST:event_botaoExcluirActionPerformed
+
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        PrincipalAdmin principaladmin = new PrincipalAdmin();
-        principaladmin.setVisible(true);
+        PrincipalProfessor principalprofessor = new PrincipalProfessor();
+        principalprofessor.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-        PesqProfProf.setText("");
-        PesqCogProf.setText("");
+        campoCodigoAssunto.setText("");
+        campoNome.setText("");
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
@@ -207,7 +183,7 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
     }//GEN-LAST:event_SairMouseClicked
 
     private void SobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SobreMouseClicked
-        JOptionPane.showMessageDialog(null, "Esta janela tem como função visualizar disciplinas em um banco de dados.\nPara realizar essa função, preencha um dos campos (filtro) superiores, que até então\nestão vazios, com sua respectiva informação e clique no botão ao lado (com ícone de lupa).\n\nBOTÕES:\n1 - Limpar: limpa todos os campos.\n2 - Cancelar: fecha a janela e retorna para a tela principal.");
+        JOptionPane.showMessageDialog(null, "Esta janela tem como função deletar assuntos em um banco de dados.\nPara realizar essa função, selecione o assunto que deseja apagar através\nde seu código, verifique se selecionou o assunto correto através do nome\nque surgirá e clique no botão Excluir. Selecione o assunto com cuidado.\nUma vez excluído, não há volta.\n\nBOTÕES:\n1 - Excluir: apaga o assunto do banco de dados.\n2 - Limpar: limpa todos os campos.\n3 - Cancelar: fecha a janela e retorna para a tela principal.");
     }//GEN-LAST:event_SobreMouseClicked
 
     /**
@@ -227,14 +203,206 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirQuestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirQuestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirQuestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarDisciplina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirQuestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -303,30 +471,27 @@ public class ConsultarDisciplina extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarDisciplina().setVisible(true);
+                new ExcluirQuestao().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fundo;
-    private javax.swing.JTextField PesqCogProf;
-    private javax.swing.JTextField PesqProfProf;
-    private javax.swing.JButton PesqTodas;
     private javax.swing.JMenu Sair;
     private javax.swing.JMenu Sobre;
     private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoLimpar;
-    private javax.swing.JButton botaoPesPCod;
-    private javax.swing.JButton botaoPesqPProf;
+    private javax.swing.JButton botaoPesquisar;
+    private javax.swing.JTextField campoCodigoAssunto;
+    private javax.swing.JTextField campoNome;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel txtCodigoProfessor;
     private javax.swing.JLabel txtNome;
     // End of variables declaration//GEN-END:variables
